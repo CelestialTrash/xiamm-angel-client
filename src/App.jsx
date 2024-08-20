@@ -8,6 +8,7 @@ import { AuthContext } from "./context/user.context";
 import HamburguerIcon from './Components/HamburguerIcon';
 import HomePage from './Pages/HomePage'
 
+import ReleasesPage from './Pages/ReleasesPage';
 
 
 
@@ -35,7 +36,10 @@ function App() {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/login" element={<LoginForm/>} />
         <Route path="/Bio" element={<Bio/>} />
-
+        <Route path="/releases" element={<ReleasesPage />}/>
+        <Route path="/releases/:releaseId" element={<h1>Release Details</h1>}/>
+        <Route path="/products" element={<ProductsPage />}/>
+        <Route path="/products/:productId" element={<h1>Product Details</h1>}/>
       </Routes>
     </>
   )
