@@ -5,7 +5,7 @@ import LoginForm from './Components/LoginForm'
 import Bio from './Pages/Bio'
 import { useContext } from "react";
 import { AuthContext } from "./context/user.context";
-import LogoAndMenuIcon from './Components/LogoAndMenuIcon';
+import HamburguerIcon from './Components/HamburguerIcon';
 import HomePage from './Pages/HomePage'
 
 
@@ -17,11 +17,19 @@ import Navbar from './Components/Navbar';
 
 function App() {
   const { user } = useContext(AuthContext);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsNavbarVisible(!isNavbarVisible);
+  };
+
+
+
   console.log(user); 
   return (
     <>
-    <LogoAndMenuIcon/>
-      <Navbar/>
+    <HamburguerIcon toggleNavbar={toggleNavbar} />
+    {isNavbarVisible && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/signup" element={<SignupForm />} />
