@@ -1,0 +1,16 @@
+.bio-section {
+    width: 100vw;
+    height: 695px;
+    border: red solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    
+}
+
+.bio-container {
+    border: red solid 1px;
+    width: 90%;
+}

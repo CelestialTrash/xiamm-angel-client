@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import SignupForm from "./Components/SignupForm"
 import LoginForm from './Components/LoginForm'
+import Bio from './Pages/Bio'
 import { useContext } from "react";
 import { AuthContext } from "./context/user.context";
 import LogoAndMenuIcon from './Components/LogoAndMenuIcon';
@@ -25,6 +26,8 @@ function App() {
         <Route path="/" element={<HomePage/>} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/login" element={<LoginForm/>} />
+        <Route path="/Bio" element={<Bio/>} />
+
       </Routes>
     </>
   )
