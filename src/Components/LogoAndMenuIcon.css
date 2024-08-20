@@ -1,0 +1,24 @@
+.logo-and-menu-icon-container {
+    width: 100vw;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    background-color: rgba(0, 0, 0, 0.623);
+    color: aliceblue;
+
+}
+
+.logo-button{
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+}
+
+.menu-icon-button {
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+}
