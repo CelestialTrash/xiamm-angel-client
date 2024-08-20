@@ -1,24 +1,18 @@
-//REACT
 import { Link } from "react-router-dom";
+import './Navbar.css';
 
-//CSS
-
-import './Navbar.css'
-
-function Navbar() {
+function Navbar({ closeNavbar }) {
     return (
         <div className="navbar-container">
             <div className="text-container">
-                <Link to={"/releases"}>
-                <h2 className="link-hover">Releases</h2>
+                <Link to="/releases" onClick={closeNavbar}>
+                    <h2 className="link-hover">Releases</h2>
                 </Link>
-
-                <Link to={"./catalog"}>
-                <h2 className="link-hover">Merch</h2>
+                <Link to="/products" onClick={closeNavbar}>
+                    <h2 className="link-hover">Merch</h2>
                 </Link>
-
-                <Link to={"/bio"}>
-                <h2 className="link-hover">Bio</h2>
+                <Link to="/bio" onClick={closeNavbar}>
+                    <h2 className="link-hover">Bio</h2>
                 </Link>
             </div>
         </div>
