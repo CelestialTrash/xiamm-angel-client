@@ -38,7 +38,7 @@ function App() {
         <Route path="/Bio" element={<Bio/>} />
         <Route path="/releases" element={<ReleasesPage />}/>
         <Route path="/releases/:releaseId" element={<h1>Release Details</h1>}/>
-        <Route path="/products" element={<ProductsPage />}/>
+        <Route path="/products" element={<h1>hola</h1>}/>
         <Route path="/products/:productId" element={<h1>Product Details</h1>}/>
       </Routes>
     </>
