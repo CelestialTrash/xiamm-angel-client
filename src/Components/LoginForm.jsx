@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-function LoginPage() {
+function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState();
@@ -63,4 +63,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default LoginForm;

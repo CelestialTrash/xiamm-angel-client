@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import SignupPage from "./Components/SignupPage"
-import LoginPage from './Components/LoginPage'
+import SignupPage from "./Components/SignupForm"
+import LoginPage from './Components/LoginForm'
 import { useContext } from "react";
 import { AuthContext } from "./context/user.context";
 
@@ -19,8 +19,8 @@ function App() {
       
       <Routes>
         <Route path="/" element={<h1>This is home</h1>} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/login" element={<LoginForm/>} />
       </Routes>
     </>
   )
