@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import './Navbar.css';
 
-function Navbar({ closeNavbar }) {
+function Navbar({ closeNavbar, isNavbarClosing }) {
     return (
-        <div className="navbar-container">
+        <div className={`navbar-container ${!isNavbarClosing ? '' : 'fadeout'}`}>
             <div className="text-container">
                 <Link to="/releases" onClick={closeNavbar}>
                     <h2 className="link-hover">Releases</h2>

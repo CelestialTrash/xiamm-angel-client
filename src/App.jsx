@@ -1,28 +1,42 @@
-import { useState, useContext } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, useContext } from "react";
+import { Routes, Route } from "react-router-dom";
 import SignupForm from "./Components/SignupForm";
-import LoginForm from './Components/LoginForm';
-import Bio from './Pages/Bio';
+import LoginForm from "./Components/LoginForm";
+import Bio from "./Pages/Bio";
 import { AuthContext } from "./context/user.context";
-import HamburguerIcon from './Components/HamburguerIcon';
-import HomePage from './Pages/HomePage';
-import ReleasesPage from './Pages/ReleasesPage';
-import Navbar from './Components/Navbar';
-import './App.css';
-import NotFoundPage from './Pages/NotFoundPage';
-import ProductsPage from './Pages/ProductsPage';
-import ProductDetailsPage from './Pages/ProductDetailsPage';
+import HamburguerIcon from "./Components/HamburguerIcon";
+import HomePage from "./Pages/HomePage";
+import ReleasesPage from "./Pages/ReleasesPage";
+import Navbar from "./Components/Navbar";
+import "./App.css";
+import NotFoundPage from "./Pages/NotFoundPage";
+import ProductsPage from "./Pages/ProductsPage";
+import ProductDetailsPage from "./Pages/ProductDetailsPage";
 
 function App() {
   const { user } = useContext(AuthContext);
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+  const [isNavbarClosing, setIsNavbarClosing] = useState(false);
 
   const toggleNavbar = (newState) => {
-    setIsNavbarVisible(newState);
+    if (newState) {
+      setIsNavbarVisible(newState);
+    } else {
+      setIsNavbarClosing(true);
+      setTimeout(() => {
+        setIsNavbarVisible(newState);
+        setIsNavbarClosing(false);
+      }, 400);
+    }
   };
 
   const closeNavbar = () => {
-    setIsNavbarVisible(false);
+    setIsNavbarClosing(true);
+
+    setTimeout(() => {
+      setIsNavbarVisible(false);
+      setIsNavbarClosing(false);
+    }, 400);
   };
 
   /* console.log(user);  */
@@ -30,7 +44,9 @@ function App() {
   return (
     <>
       <HamburguerIcon toggleNavbar={toggleNavbar} resetIcon={isNavbarVisible} />
-      {isNavbarVisible && <Navbar closeNavbar={closeNavbar} />}
+      {isNavbarVisible && (
+        <Navbar isNavbarClosing={isNavbarClosing} closeNavbar={closeNavbar} />
+      )}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupForm />} />
