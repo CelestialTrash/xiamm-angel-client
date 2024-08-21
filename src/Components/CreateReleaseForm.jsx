@@ -1,6 +1,7 @@
 import "./FormStyles.css"
 import axios from "axios"
 import { useState } from "react"
+import UploadWidget from "./UploadWidget"
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -43,6 +44,10 @@ function CreateReleaseForm({onClick}) {
 
     }
 
+    const handleUpload = (e) => {
+        setImageUrl(e);
+    }
+
     return(
         <section className="form-section">
             <form onSubmit={handlePostRelease}>
@@ -54,7 +59,8 @@ function CreateReleaseForm({onClick}) {
                 <label htmlFor="producer">Producer</label>
                 <input onChange={(e) => setProducer(e.target.value)} type="text" name="producer" id="producer" value={producer}/>
                 <label htmlFor="imageUrl">Image</label>
-                <input onChange={(e) => setImageUrl(e.target.value)} type="text" name="imageUrl" id="imageUrl" value={imageUrl}/>
+                <div>{<UploadWidget onUpload={handleUpload} />}</div>
+                <img src={imageUrl} alt={title} />
 
                 <button type="submit">Post</button>
                 <button type="button" onClick={onClick}>Cancel</button>
