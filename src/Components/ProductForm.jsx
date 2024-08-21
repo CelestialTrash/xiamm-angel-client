@@ -1,12 +1,13 @@
 import "./ProductForm.css";
-import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+//CLOUDINARY
+
+import UploadWidget from "./UploadWidget";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const storedToken = localStorage.getItem("Authorization");
-
 
 function ProductForm() {
   const [title, setTitle] = useState("");
@@ -15,18 +16,24 @@ function ProductForm() {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    const newProduct = { title, price, image };
+    const newProduct = { title, price, imageUrl: image };
     e.preventDefault();
     /* console.log(storedToken); */
 
     axios
-      .post(`${API_URL}/api/products`,newProduct,{ headers: { Authorization: `Bearer ${storedToken}` } } )
+      .post(`${API_URL}/api/products`, newProduct, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         const newProduct = response.data;
 
         navigate(`/products/${newProduct._id}`); //review this route with the app routes
       })
       .catch((error) => console.log(error));
+  };
+
+  const handleUpload = (e) => {
+    setImage(e);
   };
   return (
     <div className="create-product-layout">
@@ -47,13 +54,10 @@ function ProductForm() {
           type="Number"
         />
         <label> Product Image URL</label>
-        {/*  URL for now, would need to use Supabase first and then pass on but we do this later.  */}
-        <textarea
-          required
-          value={image}
-          onChange={(event) => setImage(event.target.value)}
-          type="text"
-        />
+       
+        <div>{<UploadWidget onUpload={handleUpload} />}</div>
+        <img src={image} alt="" />
+
         <button type="submit"> Submit</button>
       </form>
     </div>
