@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import ProductForm from "../Components/ProductForm";
 import WarningProduct from "../Components/WarningProduct";
-import "./Catalog.css";
+import "./ProductsPage.css";
 
-function CatalogPage() {
+const API_URL = import.meta.env.VITE_API_URL;
+
+function ProductsPage() {
   const [products, setProducts] = useState([]);
   const [displayAddProductForm, setDisplayAddProductForm] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
 
   function getProducts() {
     axios
@@ -40,8 +43,8 @@ const displayWarning = (id) => {
         <ul className="products-container">
           {products.map((eachProduct) => {
             return (
-              <div className="product-relative" key={eachProduct.id}>
-                <Link to={`/products/${productId}`}>
+              <div className="product-relative" key={eachProduct._id}>
+                <Link to={`/products/${eachProduct._id}`}>
                   <li className="product-card">
                     <div>
                       <h2>{eachProduct.title}</h2>
@@ -53,7 +56,7 @@ const displayWarning = (id) => {
                 </Link>
                 <button
                   className="delete-button"
-                  onClick={() => displayWarning(eachProduct.id)}
+                  onClick={() => displayWarning(eachProduct._id)}
                 >
                  🗑️
                 </button>
@@ -77,12 +80,12 @@ const displayWarning = (id) => {
         setShowWarning={setShowWarning}
       />
     )}
+  {
+    displayAddProductForm && <ProductForm />
+  }
     </>
   );
 
-  {
-    displayAddProductForm && <ProductForm />;
-  }
 }
 
-export default CatalogPage;
+export default ProductsPage;
