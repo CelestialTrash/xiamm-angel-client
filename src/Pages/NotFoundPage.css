@@ -1,0 +1,18 @@
+.not-found-page-section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-page-container {
+    border: solid 2px rgba(0, 0, 0, 0.511);
+    width: 85%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}
