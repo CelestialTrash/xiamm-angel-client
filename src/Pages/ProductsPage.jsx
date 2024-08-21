@@ -47,6 +47,7 @@ const [editProductId, setEditProductId] = useState(null)
 function deleteProduct(id){
   axios
   .delete(`${API_URL}/api/products/${id}`,{ headers: { Authorization: `Bearer ${storedToken}` } })
+  .then(()=> setShowWarning(false))
   .then(() => getProducts())
   .catch((error) => console.log(error));
 }
@@ -68,6 +69,9 @@ const displayWarning = (id) => {
         >
           Add Product
         </button>
+        {
+    displayAddProductForm && <ProductForm />
+  }
         <ul className="products-container">
           {products.map((eachProduct) => {
             return (
@@ -76,7 +80,7 @@ const displayWarning = (id) => {
                   <li className="product-card">
                     <div>
                       <h2>{eachProduct.title}</h2>
-                      <img>{eachProduct.image}</img>{" "}
+                      <img src={eachProduct.imageUrl} alt={eachProduct.title}/>{" "}
                       {/* //this is probably wrong, review it and add formatting */}
                       <h3>{eachProduct.price}</h3>
                     </div>
@@ -110,9 +114,7 @@ const displayWarning = (id) => {
         setShowWarning={setShowWarning}
       />
     )}
-  {
-    displayAddProductForm && <ProductForm />
-  }
+  
     </>
   );
 
