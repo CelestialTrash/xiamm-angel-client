@@ -1,5 +1,5 @@
 import "./ProductForm.css";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -7,10 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 import UploadWidget from "./UploadWidget";
 
-
 const API_URL = import.meta.env.VITE_API_URL;
 const storedToken = localStorage.getItem("Authorization");
-
 
 function ProductForm() {
   const [title, setTitle] = useState("");
@@ -19,12 +17,14 @@ function ProductForm() {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    const newProduct = { title, price, imageUrl:image };
+    const newProduct = { title, price, imageUrl: image };
     e.preventDefault();
     /* console.log(storedToken); */
 
     axios
-      .post(`${API_URL}/api/products`,newProduct,{ headers: { Authorization: `Bearer ${storedToken}` } } )
+      .post(`${API_URL}/api/products`, newProduct, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         const newProduct = response.data;
 
@@ -33,15 +33,9 @@ function ProductForm() {
       .catch((error) => console.log(error));
   };
 
-  const handleUpload=(e)=>{
-    console.log(e);
-    console.log("HELLOOOOOOOO");
-    if(image) return
-
-    setImage(e)
-    
-    
-  }
+  const handleUpload = (e) => {
+    setImage(e);
+  };
   return (
     <div className="create-product-layout">
       <form className="create-product-form" onSubmit={handleSubmit}>
@@ -62,9 +56,9 @@ function ProductForm() {
         />
         <label> Product Image URL</label>
         {/*  URL for now, would need to use Cloudinary */}
-        <div>{<UploadWidget onUpload={handleUpload}/>}</div>
+        <div>{<UploadWidget onUpload={handleUpload} />}</div>
         <img src={image} alt="" />
-        
+
         <button type="submit"> Submit</button>
       </form>
     </div>

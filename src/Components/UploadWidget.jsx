@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
 
+const cloudName = import.meta.env.VITE_CLOUD_NAME;
+const preset = import.meta.env.VITE_CLOUD_PRESET;
 
-const cloudName = import.meta.env.VITE_CLOUD_NAME
-const preset = import.meta.env.VITE_CLOUD_PRESET
-
-const UploadWidget = ({onUpload}) => {
+const UploadWidget = ({ onUpload }) => {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
 
@@ -15,15 +14,27 @@ const UploadWidget = ({onUpload}) => {
         cloudName: cloudName,
         uploadPreset: preset,
       },
-      function (error, result) {
-        console.log(result.info.url);
-        onUpload(result.info.url)
+      (error, result) => {
+        if (result.event === "success" && result.info && result.info.url) {
+          onUpload(result.info.url);
+        }
+        if (error) {
+          console.log(error);
+        }
       }
     );
   }, []);
+
   return (
-  <button onClick={() => widgetRef.current.open()}>Upload</button>
-)
+    <button
+      onClick={(e) => {
+        e.preventDefault();
+        widgetRef.current.open();
+      }}
+    >
+      Upload
+    </button>
+  );
 };
 
 export default UploadWidget;
