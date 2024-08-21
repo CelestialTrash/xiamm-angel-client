@@ -21,7 +21,7 @@ function ReleasesPage() {
                 setReleases(response.data);
             })
             .catch((error) => {
-                console.error(error.response.data.message);
+                console.error(error?.response.data.message);
             });
     }
 

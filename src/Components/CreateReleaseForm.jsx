@@ -11,6 +11,8 @@ function CreateReleaseForm({onClick}) {
     const [imageUrl, setImageUrl] = useState("")
     const [errorMessage, setErrorMessage] = useState()
 
+    const authToken = localStorage.getItem("Authorization")
+
     const handlePostRelease = (e) => {
         e.preventDefault()
 
@@ -20,20 +22,25 @@ function CreateReleaseForm({onClick}) {
             producer,
             imageUrl
         }
-
-        axios.post(`${API_URL}/releases`, newRelease)
-            .then((response) => {
-                console.log("Release posted!", response);
-                
-            })
-            .catch((error) => {
-                console.error(error);
-                setErrorMessage(error.response.data.message);
         
-                setTimeout(() => {
-                    setErrorMessage(null);
-                }, 10000);
-            });
+
+        if(authToken) {
+
+            axios.post(`${API_URL}/api/releases`, newRelease, { headers: { Authorization: `Bearer ${authToken}`} })
+                .then((response) => {
+                    console.log("Release posted!", response);
+                    location.reload()
+                })
+                .catch((error) => {
+                    console.error(error);
+                    setErrorMessage(error.response.data.message);
+            
+                    setTimeout(() => {
+                        setErrorMessage(null);
+                    }, 10000);
+                });
+        }
+
     }
 
     return(
