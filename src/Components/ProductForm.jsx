@@ -3,6 +3,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+//CLOUDINARY
+
+import UploadWidget from "./UploadWidget";
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 const storedToken = localStorage.getItem("Authorization");
@@ -15,7 +19,7 @@ function ProductForm() {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    const newProduct = { title, price, image };
+    const newProduct = { title, price, imageUrl:image };
     e.preventDefault();
     /* console.log(storedToken); */
 
@@ -28,6 +32,16 @@ function ProductForm() {
       })
       .catch((error) => console.log(error));
   };
+
+  const handleUpload=(e)=>{
+    console.log(e);
+    console.log("HELLOOOOOOOO");
+    if(image) return
+
+    setImage(e)
+    
+    
+  }
   return (
     <div className="create-product-layout">
       <form className="create-product-form" onSubmit={handleSubmit}>
@@ -47,13 +61,10 @@ function ProductForm() {
           type="Number"
         />
         <label> Product Image URL</label>
-        {/*  URL for now, would need to use Supabase first and then pass on but we do this later.  */}
-        <textarea
-          required
-          value={image}
-          onChange={(event) => setImage(event.target.value)}
-          type="text"
-        />
+        {/*  URL for now, would need to use Cloudinary */}
+        <div>{<UploadWidget onUpload={handleUpload}/>}</div>
+        <img src={image} alt="" />
+        
         <button type="submit"> Submit</button>
       </form>
     </div>
