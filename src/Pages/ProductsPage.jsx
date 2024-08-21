@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ProductForm from "../Components/ProductForm";
+import EditProductForm from "../Components/EditProductForm";
 import WarningProduct from "../Components/WarningProduct";
 import "./ProductsPage.css";
 
@@ -16,6 +17,8 @@ function ProductsPage() {
   const [showWarning, setShowWarning] = useState(false);
   const [idToDelete, setIdToDelete] = useState(null);
   const navigate = useNavigate();
+  
+  //Get Products
   function getProducts() {
     axios
       .get(`${API_URL}/api/products`)
@@ -28,6 +31,19 @@ function ProductsPage() {
     getProducts();
   }, []);
 
+//Edit Products
+const [editProductId, setEditProductId] = useState(null)
+    
+    const handleDisplayEditForm = (productId) => {
+        return setEditProductId(productId)
+    }
+
+    const handleCancelEdit = () => {
+        setEditProductId(null);
+    };
+
+
+// Delete Products
 function deleteProduct(id){
   axios
   .delete(`${API_URL}/api/products/${id}`,{ headers: { Authorization: `Bearer ${storedToken}` } })
@@ -44,6 +60,14 @@ const displayWarning = (id) => {
   return (
     <>
       <section className="catalog-page-section">
+      <button
+          className="add-product-button"
+          onClick={() => {
+            setDisplayAddProductForm(true);
+          }}
+        >
+          Add Product
+        </button>
         <ul className="products-container">
           {products.map((eachProduct) => {
             return (
@@ -58,6 +82,15 @@ const displayWarning = (id) => {
                     </div>
                   </li>
                 </Link>
+                <button onClick={() => handleDisplayEditForm(eachProduct._id)}>Edit</button>
+                {editProductId === eachProduct._id && 
+                <EditProductForm
+                getProducts={getProducts} 
+                id={eachProduct._id} 
+                title={eachProduct.title} 
+                price={eachProduct.price}  
+                image={eachProduct.image} 
+                cancelEdit={handleCancelEdit} />}
                 <button
                   className="delete-button"
                   onClick={() => displayWarning(eachProduct._id)}
@@ -68,14 +101,7 @@ const displayWarning = (id) => {
             );
           })}
         </ul>
-        <button
-          className="add-product-button"
-          onClick={() => {
-            setDisplayAddProductForm(true);
-          }}
-        >
-          Add Product
-        </button>
+        
       </section>
       {showWarning && (
       <WarningProduct
