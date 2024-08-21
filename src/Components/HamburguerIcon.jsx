@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./HamburguerIcon.css";
 
-function HamburguerIcon({ toggleNavbar }) {
+function HamburguerIcon({ toggleNavbar, resetIcon }) {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
-    setIsActive(!isActive);
-    toggleNavbar();
+    const newState = !isActive;
+    setIsActive(newState);
+    toggleNavbar(newState);
   };
+
+  // Reset icon when the Navbar is closed
+  useEffect(() => {
+    if (!resetIcon) {
+      setIsActive(false);
+    }
+  }, [resetIcon]);
 
   return (
     <section className="menu-section">

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ProductForm from "../Components/ProductForm";
+import WarningProduct from "../Components/WarningProduct";
 import "./Catalog.css";
 
 function CatalogPage() {
@@ -19,6 +20,19 @@ function CatalogPage() {
   useEffect(() => {
     getProducts();
   }, []);
+
+function deleteProduct(id){
+  axios
+  .delete(`${API_URL}/api/products/${id}`)
+  .then(() => navigate(`/products`))
+  .catch((error) => console.log(error));
+}
+
+const displayWarning = (id) => {
+  setShowWarning(true);
+  setIdToDelete(id);
+};
+
 
   return (
     <>
@@ -39,9 +53,9 @@ function CatalogPage() {
                 </Link>
                 <button
                   className="delete-button"
-                  onClick={() => displayWarning(eachEvent.id)}
+                  onClick={() => displayWarning(eachProduct.id)}
                 >
-                  <img src={trashcanIcon} alt="delete event" />
+                 🗑️
                 </button>
               </div>
             );
@@ -50,12 +64,19 @@ function CatalogPage() {
         <button
           className="add-product-button"
           onClick={() => {
-            setDisplayAddProductForm(true); //pending
+            setDisplayAddProductForm(true);
           }}
         >
           Add Product
         </button>
       </section>
+      {showWarning && (
+      <WarningProduct
+        deleteProduct={deleteProduct}
+        idToDelete={idToDelete}
+        setShowWarning={setShowWarning}
+      />
+    )}
     </>
   );
 
