@@ -4,6 +4,7 @@ import EditReleaseForm from "../Components/EditReleaseForm"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import './ReleasesPage.css'
+import { useNavigate } from "react-router-dom"
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -43,6 +44,26 @@ function ReleasesPage() {
         getReleases()
     }, [])
 
+
+    //Delete item
+    const [releaseWarning, setReleaseWarning] = useState(false)
+    const [idToDelete, setIdToDelete] = useState("")
+    const navigate = useNavigate()
+
+    function deleteRelease(id) {
+        axios
+            .delete(`${API_URL}/api/releases/${id}`)
+            .then(() => navigate('/releases'))
+            .catch((error) => {
+                console.error(error?.response.data.message);
+            });
+    }
+
+    const displayWarning = (id) => {
+        setWarning(true);
+        setIdToDelete(id)
+    }
+
     return(
         <section  id="releases-page">
             <div id="release-form-container">
@@ -60,7 +81,7 @@ function ReleasesPage() {
                                 <ReleaseCard title={title} producer={producer} imageUrl={imageUrl}/>
                                 <button onClick={() => handleDisplayEditForm(_id)}>Edit</button>
                                 {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} />}
-                                <button>Delete</button>
+                                <button onClick={() => displayWarning(_id)}>Delete</button>
                                 </li>
                             )
                     })
