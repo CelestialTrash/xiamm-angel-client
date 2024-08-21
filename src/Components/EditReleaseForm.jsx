@@ -4,7 +4,7 @@ import { useState } from "react"
 
 const API_URL = import.meta.env.VITE_API_URL
 
-function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit}) {
+function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getReleases}) {
     const [newTitle, setNewTitle] = useState(title)
     const [newDate, setNewDate] = useState(date)
     const [newProducer, setNewProducer] = useState(producer)
@@ -28,6 +28,10 @@ function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit}) {
             .then((response) => {
                 console.log("Release updated!", response);
             })
+            .then(() => {
+                getReleases();
+            })
+            .then(() => cancelEdit())
             .catch((error) => {
                 console.error(error);
                 setErrorMessage(error.response.data.message);

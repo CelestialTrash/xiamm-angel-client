@@ -1,6 +1,7 @@
 import ReleaseCard from "../Components/ReleaseCard"
 import CreateReleaseForm from "../Components/CreateReleaseForm"
 import EditReleaseForm from "../Components/EditReleaseForm"
+import WarningRelease from "../Components/WarningRelease"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import './ReleasesPage.css'
@@ -49,18 +50,19 @@ function ReleasesPage() {
     const [releaseWarning, setReleaseWarning] = useState(false)
     const [idToDelete, setIdToDelete] = useState("")
     const navigate = useNavigate()
+    const authToken = localStorage.getItem("Authorization")
 
     function deleteRelease(id) {
         axios
-            .delete(`${API_URL}/api/releases/${id}`)
-            .then(() => navigate('/releases'))
+            .delete(`${API_URL}/api/releases/${id}`, { headers: { Authorization: `Bearer ${authToken}`} })
+            .then(() => getReleases())
             .catch((error) => {
                 console.error(error?.response.data.message);
             });
     }
 
     const displayWarning = (id) => {
-        setWarning(true);
+        setReleaseWarning(true);
         setIdToDelete(id)
     }
 
@@ -80,8 +82,9 @@ function ReleasesPage() {
                                 <li className="card" key={_id}>
                                 <ReleaseCard title={title} producer={producer} imageUrl={imageUrl}/>
                                 <button onClick={() => handleDisplayEditForm(_id)}>Edit</button>
-                                {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} />}
+                                {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} getReleases={getReleases}/>}
                                 <button onClick={() => displayWarning(_id)}>Delete</button>
+                                {releaseWarning && idToDelete === _id && <WarningRelease deleteRelease={deleteRelease} setReleaseWarning={setReleaseWarning} idToDelete={_id} />}
                                 </li>
                             )
                     })
