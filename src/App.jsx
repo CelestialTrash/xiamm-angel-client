@@ -11,6 +11,7 @@ import Navbar from './Components/Navbar';
 import './App.css';
 import NotFoundPage from './Pages/NotFoundPage';
 import ProductsPage from './Pages/ProductsPage';
+import ProductDetailsPage from './Pages/ProductDetailsPage';
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -24,7 +25,7 @@ function App() {
     setIsNavbarVisible(false);
   };
 
-  console.log(user); 
+  /* console.log(user);  */
 
   return (
     <>
@@ -38,7 +39,7 @@ function App() {
         <Route path="/releases" element={<ReleasesPage />} />
         <Route path="/releases/:releaseId" element={<h1>Release Details</h1>} />
         <Route path="/products" element={<ProductsPage />} />
-        <Route path="/products/:productId" element={<h1>Product Details</h1>} />
+        <Route path="/products/:productId" element={<ProductDetailsPage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </>

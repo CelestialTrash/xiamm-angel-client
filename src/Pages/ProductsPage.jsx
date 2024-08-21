@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ProductForm from "../Components/ProductForm";
 import WarningProduct from "../Components/WarningProduct";
 import "./ProductsPage.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
+const storedToken = localStorage.getItem("Authorization");
+
 
 function ProductsPage() {
   const [products, setProducts] = useState([]);
   const [displayAddProductForm, setDisplayAddProductForm] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
-
+  const [idToDelete, setIdToDelete] = useState(null);
+  const navigate = useNavigate();
   function getProducts() {
     axios
       .get(`${API_URL}/api/products`)
@@ -26,8 +30,8 @@ function ProductsPage() {
 
 function deleteProduct(id){
   axios
-  .delete(`${API_URL}/api/products/${id}`)
-  .then(() => navigate(`/products`))
+  .delete(`${API_URL}/api/products/${id}`,{ headers: { Authorization: `Bearer ${storedToken}` } })
+  .then(() => getProducts())
   .catch((error) => console.log(error));
 }
 
