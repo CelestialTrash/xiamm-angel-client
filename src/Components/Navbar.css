@@ -1,7 +1,7 @@
 .navbar-container {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.623);
+    background-color: rgba(0, 0, 0, 0.759);
     color: aliceblue;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
     justify-content: flex-start;
     position: absolute;
     animation: Fade 500ms linear;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(10px);
 
 
     a {
@@ -36,10 +36,34 @@
 0% {
     transform: translateY(-100%) scaleY(-1);
     opacity: 0;
+    backdrop-filter: blur(0px);
 }
 100%{
     transform: translateY(0%) scaleY(1);
     opacity: 1;
+    backdrop-filter: blur(10px);
     
 }
 }
+
+
+
+@keyframes FadeOut {
+    0%{
+        transform: translateY(0%) scaleY(1);
+        opacity: 1;
+        backdrop-filter: blur(10px);
+        
+    }
+    100% {
+        transform: translateY(-100%) scaleY(-1);
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+}
+
+
+.fadeout {
+    animation: FadeOut 500ms linear;
+}
+
