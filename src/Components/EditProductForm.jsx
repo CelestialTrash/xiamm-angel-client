@@ -1,14 +1,16 @@
 import "./EditProductForm.css"
 import axios from "axios"
 import { useState } from "react"
+//Cloudinary
+import UploadWidget from "./UploadWidget";
 
 const API_URL = import.meta.env.VITE_API_URL
 const authToken = localStorage.getItem("Authorization")
 
-function EditProductForm({id, title, price, image, cancelEdit,getProducts}) {
+function EditProductForm({id, title, price, imageUrl, cancelEdit,getProducts}) {
     const [newTitle, setNewTitle] = useState(title)
     const [newPrice, setNewPrice] = useState(price)
-    const [newImage, setNewImage] = useState(image)
+    const [newImage, setNewImage] = useState(imageUrl)
     const [errorMessage, setErrorMessage] = useState()
 
     const handleEditProduct = (e) => {
@@ -17,7 +19,7 @@ function EditProductForm({id, title, price, image, cancelEdit,getProducts}) {
         const updatedProduct = {
             title: newTitle,
             price: newPrice,
-            image: newImage,
+            imageUrl: newImage,
         }
 
         if(authToken) {
@@ -39,6 +41,10 @@ function EditProductForm({id, title, price, image, cancelEdit,getProducts}) {
         
     }
 
+    const handleUpload = (e) => {
+        setNewImage(e);
+      };
+
     return(
         <section className="form-section">
             <form onSubmit={handleEditProduct}>
@@ -47,9 +53,9 @@ function EditProductForm({id, title, price, image, cancelEdit,getProducts}) {
                 <input onChange={(e) => setNewTitle(e.target.value)} type="text" name="title" id="title" value={newTitle} />
                 <label htmlFor="price">Price</label>
                 <input onChange={(e) => setNewPrice(e.target.value)} type="Number" name="price" id="price" value={newPrice} />
-                <label htmlFor="image">Image</label>
-                <input onChange={(e) => setNewImage(e.target.value)} type="text" name="image" id="image" value={newImage} />
-
+                <label htmlFor="image">Product Image URL</label>
+               <div>{<UploadWidget onUpload={handleUpload} />}</div>
+                <img src={newImage} alt="" />
                 <button type="submit">Save</button>
                 <button type="button" onClick={cancelEdit}>Cancel</button>
                 <p className="error">{errorMessage}</p>
