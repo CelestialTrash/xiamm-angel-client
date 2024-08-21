@@ -1,5 +1,4 @@
 import "./ProductForm.css";
-import { useState, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -55,7 +54,7 @@ function ProductForm() {
           type="Number"
         />
         <label> Product Image URL</label>
-        {/*  URL for now, would need to use Cloudinary */}
+       
         <div>{<UploadWidget onUpload={handleUpload} />}</div>
         <img src={image} alt="" />
 
