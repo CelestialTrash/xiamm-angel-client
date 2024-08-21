@@ -9,6 +9,7 @@ import HomePage from './Pages/HomePage';
 import ReleasesPage from './Pages/ReleasesPage';
 import Navbar from './Components/Navbar';
 import './App.css';
+import NotFoundPage from './Pages/NotFoundPage';
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -37,6 +38,7 @@ function App() {
         <Route path="/releases/:releaseId" element={<h1>Release Details</h1>} />
         <Route path="/products" element={<h1>hola</h1>} />
         <Route path="/products/:productId" element={<h1>Product Details</h1>} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
