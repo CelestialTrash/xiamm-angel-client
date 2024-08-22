@@ -1,14 +1,15 @@
 import { useState } from "react";
-import "./FormStyles.css";
+import "../Components/FormStyles.css";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-function LoginForm() {
+function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,7 +23,7 @@ function LoginForm() {
         const authToken = response.data.authToken;
 
         localStorage.setItem("Authorization", authToken)
-        Navigate("/");
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -63,4 +64,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default LoginPage;

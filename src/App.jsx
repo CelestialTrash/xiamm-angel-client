@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import SignupForm from "./Components/SignupForm";
-import LoginForm from "./Components/LoginForm";
+import SignupPage from "./Pages/SignupPage";
+import LoginPage from "./Pages/LoginPage";
 import Bio from "./Pages/Bio";
 import { AuthContext } from "./context/user.context";
 import HamburguerIcon from "./Components/HamburguerIcon";
@@ -49,8 +49,8 @@ function App() {
       )}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<SignupForm />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/Bio" element={<Bio />} />
         <Route path="/releases" element={<ReleasesPage />} />
         <Route path="/releases/:releaseId" element={<h1>Release Details</h1>} />

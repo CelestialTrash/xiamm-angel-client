@@ -5,11 +5,11 @@ import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 //CSS
-import "./FormStyles.css";
+import "../Components/FormStyles.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-function SignupForm() {
+function SignupPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -83,4 +83,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default SignupPage;
