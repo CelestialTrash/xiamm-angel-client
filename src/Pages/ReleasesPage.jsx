@@ -6,6 +6,8 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import './ReleasesPage.css'
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { AuthContext } from "../context/user.context"
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -78,27 +80,39 @@ function ReleasesPage() {
         }, 1500)
     }, [])
 
+    //User checker
+    const {user} = useContext(AuthContext)
+    
+
     return (
         <>
             {isLoading ? <div>Loading...</div> : (
-            <section id="releases-page">
-                <div id="release-form-container">
-                    <button onClick={handleDisplayCreateForm}>Make Release</button>
-                    {displayForm && <CreateReleaseForm onClick={handleDisplayCreateForm} getReleases={getReleases} cancelCreate={handleCancelCreate}/>}
+                <section id="releases-page">
+                    {user ? (
+                        <div id="release-form-container">
+                            <button onClick={handleDisplayCreateForm}>Make Release</button>
+                            {displayForm && <CreateReleaseForm onClick={handleDisplayCreateForm} getReleases={getReleases} cancelCreate={handleCancelCreate} />}
+                        </div>
+                    ) : <div></div>
+                    }
+                    {isLoading ? <div>Loading...</div> : (
+                        <ul id="card-container">
+                            {
+                                releases &&
+                                releases.map(({ _id, title, producer, imageUrl, date }) => {
+                                    return (
+                                        <li className="card" key={_id}>
+                                            <ReleaseCard title={title} producer={producer} imageUrl={imageUrl} />
+                                            {user ? (
+                                                <div className="card-btn-container">
+                                                    <button onClick={() => handleDisplayEditForm(_id)}>Edit</button>
+                                                    {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} getReleases={getReleases} />}
+                                                    <button onClick={() => displayWarning(_id)}>Delete</button>
+                                                    {releaseWarning && idToDelete === _id && <WarningRelease deleteRelease={deleteRelease} setReleaseWarning={setReleaseWarning} idToDelete={_id} />}
+                                                </div>
 
-                </div>
-                {isLoading ? <div>Loading...</div> : (
-                <ul id="card-container">
-                    {
-                        releases &&
-                        releases.map(({ _id, title, producer, imageUrl, date }) => {
-                            return (
-                                <li className="card" key={_id}>
-                                    <ReleaseCard title={title} producer={producer} imageUrl={imageUrl} />
-                                    <button onClick={() => handleDisplayEditForm(_id)}>Edit</button>
-                                    {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} getReleases={getReleases} />}
-                                    <button onClick={() => displayWarning(_id)}>Delete</button>
-                                    {releaseWarning && idToDelete === _id && <WarningRelease deleteRelease={deleteRelease} setReleaseWarning={setReleaseWarning} idToDelete={_id} />}
+                                            ) : <div></div>}
+                                    
                                 </li>
                             )
                         })
