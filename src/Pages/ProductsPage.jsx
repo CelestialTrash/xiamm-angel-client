@@ -103,6 +103,7 @@ function ProductsPage() {
                         />{" "}
                         {/* //this is probably wrong, review it and add formatting */}
                         <h3>{eachProduct.price}</h3>
+                        <button className="purchase-btn">Purchase</button>
                       </div>
                     </li>
                   </Link>
