@@ -1,12 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
+  
 }
+
+@font-face {
+  font-family: 'FrutigerLTStd-UltraBlack';
+  src: url('./assets/fonts/FrutigerLTStd-UltraBlack.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FT88-Regular';
+  src: url('./assets/fonts/FT88-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MinionPro-Regular';
+  src: url('./assets/fonts/MinionPro-Regular') ;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'square_sans_serif';
+  src: url('./assets/fonts/square_sans_serif.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 
 body {
   min-height: 100vh;
+  font-family: 'square_sans_serif', sans-serif;
+  background-image: url(./assets/BackgroundImg/Fondo-xyamm.png);
   
+  
+}
+
+
+:root{
+  font-size: 4px;
+
 }
 
 #root {
