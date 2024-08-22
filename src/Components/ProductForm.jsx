@@ -58,7 +58,8 @@ function ProductForm() {
         <label> Product Image URL</label>
        
         <div>{<UploadWidget onUpload={handleUpload} />}</div>
-        <img src={image} alt="" />
+        <h6> {image.length >=3? "Your image is ready to upload":""}</h6>
+        
 
         <button className="save-btn" type="submit"> Submit</button>
       </form>
