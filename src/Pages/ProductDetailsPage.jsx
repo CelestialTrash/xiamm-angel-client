@@ -31,7 +31,7 @@ function ProductDetailsPage() {
   useEffect(() => {
     setTitle(product.title);
     setPrice(product.price);
-    setImage(product.image);
+    setImage(product.imageUrl);
   }, [product]);
 
   return (
@@ -40,7 +40,6 @@ function ProductDetailsPage() {
       <img
             src={image}
             alt="product-image"/>
-      {/* //this is probably wrong, review it and add formatting */}
       <h3>{price}</h3>
     </div>
   );
