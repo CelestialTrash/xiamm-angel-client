@@ -13,7 +13,7 @@ const storedToken = localStorage.getItem("Authorization");
 
 function ProductForm({setDisplayAddProductForm}) {
   const [title, setTitle] = useState("");
-  const [price, setPrice] = useState(9.99);
+  const [price, setPrice] = useState();
   const [image, setImage] = useState("");
   const navigate = useNavigate();
 
@@ -55,6 +55,7 @@ function ProductForm({setDisplayAddProductForm}) {
           value={price}
           onChange={(event) => setPrice(event.target.value)}
           type="Number"
+          placeholder='Price'
         />
         <h6> Product Image URL</h6>
        
