@@ -16,7 +16,8 @@
 .social-links-container {
     width: 50%;
     height: 45px;
-    border: rgb(116, 238, 35) solid 1px;
+    border: rgb(116, 238, 35) solid 3px;
+  
    
     border-radius: 25px;
     display: flex;
