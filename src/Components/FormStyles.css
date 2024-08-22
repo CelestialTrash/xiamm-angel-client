@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.default-form {
+form {
   background: none;
   border: 0;
   border-radius: 0;
@@ -18,14 +18,19 @@
   flex-direction: column;
   align-items: baseline;
   margin: 3rem;
+  gap: 1.5rem;
+
   input {
     height: 4rem;
+    font-size: 4rem;
     resize: none;
     background: none;
     margin: 0;
-    padding: 0;
+    padding-bottom: 1rem;
     box-shadow: none;
     width: 60%;
+    border: none;
+    gap: 1rem;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
@@ -74,4 +79,25 @@
     cursor: pointer;
     transition: 300ms;
   } */
+}
+
+.login-form {
+  label {
+    height: 6rem;
+    font-size: 6rem;
+    margin: 2rem;
+    gap: 2rem;
+  }
+  input {
+    height: 6rem;
+    font-size: 6rem;
+    width: 95%;
+    margin: 2rem;
+    gap: 2rem;
+  }
+  button {
+    height: 8rem;
+    font-size: 6rem;
+    width: 30rem;
+  }
 }

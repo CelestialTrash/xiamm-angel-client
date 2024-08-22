@@ -7,6 +7,7 @@ import axios from "axios";
 //CSS
 import "../Components/FormStyles.css";
 
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 function SignupPage() {
@@ -46,7 +47,7 @@ function SignupPage() {
   return (
     <section className="form-section">
 
-      <form onSubmit={handleSubmit}>
+      <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input
           type="text"

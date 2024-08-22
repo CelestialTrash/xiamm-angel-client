@@ -41,7 +41,7 @@ function LoginPage() {
   return (
     <section className="form-section">
 
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
       <label htmlFor="email">Email</label>
       <input
         type="email"

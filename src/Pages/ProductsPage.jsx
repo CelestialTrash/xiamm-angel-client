@@ -88,7 +88,7 @@ function ProductsPage() {
           ) : (
             <div></div>
           )}
-          {displayAddProductForm && <ProductForm />}
+          {displayAddProductForm && <ProductForm setDisplayAddProductForm={setDisplayAddProductForm}/>}
           <ul className="products-container">
             {products.map((eachProduct) => {
               return (

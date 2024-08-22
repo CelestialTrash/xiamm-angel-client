@@ -1,4 +1,5 @@
 import "./ProductForm.css";
+import "./ButtonStyles.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -10,7 +11,7 @@ import UploadWidget from "./UploadWidget";
 const API_URL = import.meta.env.VITE_API_URL;
 const storedToken = localStorage.getItem("Authorization");
 
-function ProductForm() {
+function ProductForm({setDisplayAddProductForm}) {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(9.99);
   const [image, setImage] = useState("");
@@ -28,7 +29,7 @@ function ProductForm() {
       .then((response) => {
         const newProduct = response.data;
 
-        navigate(`/products/${newProduct._id}`); //review this route with the app routes
+        navigate(`/products/${newProduct._id}`); 
       })
       .catch((error) => console.log(error));
   };
@@ -38,7 +39,7 @@ function ProductForm() {
   };
   return (
     <div className="create-product-layout">
-      <form className="default-form" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <h3> Create Product</h3>
        {/*  <label> Product Title</label> */}
         <input
@@ -55,13 +56,14 @@ function ProductForm() {
           onChange={(event) => setPrice(event.target.value)}
           type="Number"
         />
-        <label> Product Image URL</label>
+        <h6> Product Image URL</h6>
        
         <div>{<UploadWidget onUpload={handleUpload} />}</div>
         <h6> {image.length >=3? "Your image is ready to upload":""}</h6>
-        
-
         <button className="save-btn" type="submit"> Submit</button>
+        <button className="cancel-btn" type="button" onClick={() => {
+                setDisplayAddProductForm(false);
+              }}>Cancel</button>
       </form>
     </div>
   );

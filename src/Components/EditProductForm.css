@@ -7,21 +7,23 @@
 }
 
 
-form {
-    display: flex;
+ form {
+    /* display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 4rem;
+    
     width: 25rem;
     padding: 4rem;
     gap: 1rem;
-    border: red solid 1px;
+    
+    border: red solid 1px; */
     
    
     
-    backdrop-filter: blur(5px);
-  
+    /* backdrop-filter: blur(5px); */
+  /* 
     input {
       width: 100%;
       padding: 0.5rem;
@@ -35,7 +37,7 @@ form {
     label {
       font-size: 1.2rem;
       color: #000000;
-    }
+    } */
   
     /* button{
       padding: 0.5rem 1rem;
@@ -46,5 +48,5 @@ form {
       font-size: 1.2rem;
       cursor: pointer;
       transition: 300ms;
-    } */
+    }*/  
   }
