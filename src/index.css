@@ -53,6 +53,7 @@ body {
     --color-background-dark: #27272B; /* Para fondos oscuros, títulos y texto sobre fondo claro */
     --color-text-muted: #BABABA; /* Para texto menos destacado y bordes */
     --color-call-to-action: rgb(116, 238, 35);
+    --color-call-to-action-2: rgba(116, 238, 35, 0.5);
 }
 
 #root {

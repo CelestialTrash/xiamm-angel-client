@@ -60,7 +60,7 @@ function ProductForm() {
         <div>{<UploadWidget onUpload={handleUpload} />}</div>
         <img src={image} alt="" />
 
-        <button type="submit"> Submit</button>
+        <button className="save-btn" type="submit"> Submit</button>
       </form>
     </div>
   );

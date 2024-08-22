@@ -78,7 +78,7 @@ function ProductsPage() {
         <div>
           {user ? (
             <button
-              className="add-product-button"
+              className="add-btn"
               onClick={() => {
                 setDisplayAddProductForm(true);
               }}
@@ -109,6 +109,7 @@ function ProductsPage() {
                   {user ? (
                     <>
                       <button
+                        className="edit-btn"
                         onClick={() => handleDisplayEditForm(eachProduct._id)}
                       >
                         Edit
@@ -124,7 +125,7 @@ function ProductsPage() {
                         />
                       )}
                       <button
-                        className="delete-button"
+                        className="delete-btn"
                         onClick={() => displayWarning(eachProduct._id)}
                       >
                         🗑️

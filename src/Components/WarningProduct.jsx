@@ -5,8 +5,8 @@ function WarningProduct({ setShowWarning, idToDelete, deleteProduct }) {
             <h2> Warning!</h2>
           <p>Are you sure you want to delete this product?</p>
           <p> This action cannot be undone</p>
-          {<button onClick={() =>deleteProduct(idToDelete)}>Yes</button> }
-          <button onClick={() => setShowWarning(false)}>No</button>
+          {<button className="yes-btn" onClick={() =>deleteProduct(idToDelete)}>Yes</button> }
+          <button className="no-btn" onClick={() => setShowWarning(false)}>No</button>
         </div>
       </div>
     );

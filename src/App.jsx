@@ -12,6 +12,7 @@ import "./App.css";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ProductsPage from "./Pages/ProductsPage";
 import ProductDetailsPage from "./Pages/ProductDetailsPage";
+import './Components/ButtonStyles.css'
 
 function App() {
   const { user } = useContext(AuthContext);

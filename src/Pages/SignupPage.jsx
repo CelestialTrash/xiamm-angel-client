@@ -74,7 +74,7 @@ function SignupPage() {
           onChange={(event) => setPassword(event.target.value)}
         />
 
-        <button type="submit">Sing Up</button>
+        <button className="signup-btn" type="submit">Sign Up</button>
         <p>{errorMessage}</p>
       </form>
     </section>

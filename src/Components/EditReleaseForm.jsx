@@ -64,8 +64,8 @@ function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getRe
                 <div>{<UploadWidget onUpload={handleUpload} />}</div>
                 <img src={imageUrl} alt="" />
 
-                <button type="submit">Save</button>
-                <button type="button" onClick={cancelEdit}>Cancel</button>
+                <button className="save-btn" type="submit">Save</button>
+                <button className="cancel-btn" type="button" onClick={cancelEdit}>Cancel</button>
                 <p className="error">{errorMessage}</p>
             </form>
         </section>

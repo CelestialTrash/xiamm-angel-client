@@ -1,0 +1,33 @@
+button{
+    border: 1px solid red;
+    font-family: 'square_sans_serif';
+}
+
+button:hover{
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.signup-btn, 
+.login-btn,
+.add-btn,
+.save-btn,
+.yes-btn{
+    width: 30rem;
+    background-color: var(--color-call-to-action);
+}
+
+.cancel-btn,
+.delete-btn,
+.no-btn{
+    border: 3px solid var(--color-call-to-action-2)
+}
+
+
+.upload-btn,
+.edit-btn {
+    width: 30rem;
+    background-color: var(--color-call-to-action-2);
+    border: 3px solid var(--color-call-to-action-2)
+}
+
