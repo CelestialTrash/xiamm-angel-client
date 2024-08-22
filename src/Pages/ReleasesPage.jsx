@@ -77,7 +77,7 @@ function ReleasesPage() {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false)
-        }, 1500)
+        }, 1000)
     }, [])
 
     //User checker
@@ -90,7 +90,7 @@ function ReleasesPage() {
                 <section id="releases-page">
                     {user ? (
                         <div id="release-form-container">
-                            <button onClick={handleDisplayCreateForm}>Make Release</button>
+                            <button className="add-btn" onClick={handleDisplayCreateForm}>Make Release</button>
                             {displayForm && <CreateReleaseForm onClick={handleDisplayCreateForm} getReleases={getReleases} cancelCreate={handleCancelCreate} />}
                         </div>
                     ) : <div></div>
@@ -105,9 +105,9 @@ function ReleasesPage() {
                                             <ReleaseCard title={title} producer={producer} imageUrl={imageUrl} />
                                             {user ? (
                                                 <div className="card-btn-container">
-                                                    <button onClick={() => handleDisplayEditForm(_id)}>Edit</button>
+                                                    <button className="edit-btn" onClick={() => handleDisplayEditForm(_id)}>Edit</button>
                                                     {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} getReleases={getReleases} />}
-                                                    <button onClick={() => displayWarning(_id)}>Delete</button>
+                                                    <button className="delete-btn" onClick={() => displayWarning(_id)}>Delete</button>
                                                     {releaseWarning && idToDelete === _id && <WarningRelease deleteRelease={deleteRelease} setReleaseWarning={setReleaseWarning} idToDelete={_id} />}
                                                 </div>
 

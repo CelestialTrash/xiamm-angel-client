@@ -63,8 +63,8 @@ function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
                 <div>{<UploadWidget onUpload={handleUpload} />}</div>
                 <img src={imageUrl} alt="" />
 
-                <button type="submit">Post</button>
-                <button type="button" onClick={onClick}>Cancel</button>
+                <button className="save-btn" type="submit">Post</button>
+                <button className="cancel-btn" type="button" onClick={onClick}>Cancel</button>
                 <p className="error">{errorMessage}</p>
             </form>
         </section>

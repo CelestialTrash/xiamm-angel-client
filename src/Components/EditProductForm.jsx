@@ -54,10 +54,10 @@ function EditProductForm({id, title, price, imageUrl, cancelEdit,getProducts}) {
                 <label htmlFor="price">Price</label>
                 <input onChange={(e) => setNewPrice(e.target.value)} type="Number" name="price" id="price" value={newPrice} />
                 <label htmlFor="image">Product Image URL</label>
-               <div>{<UploadWidget onUpload={handleUpload} />}</div>
+                <div>{<UploadWidget onUpload={handleUpload} />}</div>
                 <img src={newImage} alt="" />
-                <button type="submit">Save</button>
-                <button type="button" onClick={cancelEdit}>Cancel</button>
+                <button className="save-btn" type="submit">Save</button>
+                <button className="cancel-btn" type="button" onClick={cancelEdit}>Cancel</button>
                 <p className="error">{errorMessage}</p>
             </form>
         </section>

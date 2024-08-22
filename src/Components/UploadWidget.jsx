@@ -27,6 +27,7 @@ const UploadWidget = ({ onUpload }) => {
 
   return (
     <button
+      className="upload-btn"
       onClick={(e) => {
         e.preventDefault();
         widgetRef.current.open();

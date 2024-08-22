@@ -60,7 +60,7 @@ function LoginPage() {
         onChange={(event) => setPassword(event.target.value)}
       />
 
-      <button type="submit">Log In</button>
+      <button className="login-btn" type="submit">Log In</button>
       <p className="error">{errorMessage}</p>
     </form>
     </section>
