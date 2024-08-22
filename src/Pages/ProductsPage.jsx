@@ -71,11 +71,11 @@ function ProductsPage() {
   const { user } = useContext(AuthContext);
 
   return (
-    <>
+    <section className="product-page-section">
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <section className="catalog-page-section">
+        <div>
           {user ? (
             <button
               className="add-product-button"
@@ -144,9 +144,9 @@ function ProductsPage() {
               );
             })}
           </ul>
-        </section>
+        </div>
       )}
-    </>
+    </section>
   );
 }
 
