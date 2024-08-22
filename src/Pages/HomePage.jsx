@@ -16,13 +16,13 @@ function HomePage() {
 
         </div>
         <div className="image-container">
-            {/* <h2>test</h2>
+           {/*  <h2>test</h2>
             <h3>test</h3>
             <h4>test</h4>
             <h5>test</h5>
             <h6>test</h6>
             <p> mmodi officiis exercitationem itaque aliquam illo recusandae, 
-            non explicabo quia consequuntur quod?</p> */}
+            non explicabo quia consequuntur quod?</p>  */}
             
         </div>
         <div className='title-container'>
