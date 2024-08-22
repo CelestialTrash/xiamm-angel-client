@@ -1,9 +1,23 @@
-#card-container {
-    border: red solid 1px;
-    padding: 1rem;
-    list-style: none;
+#releases-page {
+    width: 100vw;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    img {
+        width: 50rem;
+        height: 50rem;
+    }
 }
 
-.card {
-    border: red solid 1px;
+
+
+#card-container {
+    padding: 1rem;
+    list-style: none;
+    
 }
+
