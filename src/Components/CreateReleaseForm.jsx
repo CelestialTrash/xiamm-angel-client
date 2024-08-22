@@ -5,7 +5,7 @@ import UploadWidget from "./UploadWidget"
 
 const API_URL = import.meta.env.VITE_API_URL
 
-function CreateReleaseForm({onClick}) {
+function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
     const [title, setTitle] = useState("")
     const [date, setDate] = useState("")
     const [producer, setProducer] = useState("")
@@ -30,8 +30,9 @@ function CreateReleaseForm({onClick}) {
             axios.post(`${API_URL}/api/releases`, newRelease, { headers: { Authorization: `Bearer ${authToken}`} })
                 .then((response) => {
                     console.log("Release posted!", response);
-                    location.reload()
                 })
+                .then(() => getReleases())
+                .then(() => cancelCreate())
                 .catch((error) => {
                     console.error(error);
                     setErrorMessage(error.response.data.message);
@@ -60,7 +61,7 @@ function CreateReleaseForm({onClick}) {
                 <input onChange={(e) => setProducer(e.target.value)} type="text" name="producer" id="producer" value={producer}/>
                 <label htmlFor="imageUrl">Image</label>
                 <div>{<UploadWidget onUpload={handleUpload} />}</div>
-                <img src={imageUrl} alt={title} />
+                <img src={imageUrl} alt="" />
 
                 <button type="submit">Post</button>
                 <button type="button" onClick={onClick}>Cancel</button>

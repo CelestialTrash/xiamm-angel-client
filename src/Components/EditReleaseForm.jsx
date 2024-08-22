@@ -62,7 +62,7 @@ function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getRe
                 <input onChange={(e) => setNewProducer(e.target.value)} type="text" name="producer" id="producer" value={newProducer} />
                 <label htmlFor="imageUrl">Image</label>
                 <div>{<UploadWidget onUpload={handleUpload} />}</div>
-                <img src={imageUrl} alt={title} />
+                <img src={imageUrl} alt="" />
 
                 <button type="submit">Save</button>
                 <button type="button" onClick={cancelEdit}>Cancel</button>

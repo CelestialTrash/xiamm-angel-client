@@ -19,6 +19,10 @@ function ReleasesPage() {
         return setDisplayForm(!displayForm)
     }
 
+    const handleCancelCreate = () => {
+        setDisplayForm(false);
+    };
+
     //Edit Form
     const [editReleaseId, setEditReleaseId] = useState(null)
     
@@ -66,31 +70,44 @@ function ReleasesPage() {
         setIdToDelete(id)
     }
 
-    return(
-        <section  id="releases-page">
-            <div id="release-form-container">
-                <button onClick={handleDisplayCreateForm}>Make Release</button>
-                { displayForm && <CreateReleaseForm onClick={handleDisplayCreateForm}/>}
-                
+    //Loader
+    const [isLoading, setIsLoading] = useState(true)
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 1500)
+    }, [])
 
-            </div>
-            <ul id="card-container">
-                {
-                    releases && 
-                    releases.map(({_id, title, producer, imageUrl, date}) => {
-                        return (
+    return (
+        <>
+            {isLoading ? <div>Loading...</div> : (
+            <section id="releases-page">
+                <div id="release-form-container">
+                    <button onClick={handleDisplayCreateForm}>Make Release</button>
+                    {displayForm && <CreateReleaseForm onClick={handleDisplayCreateForm} getReleases={getReleases} cancelCreate={handleCancelCreate}/>}
+
+                </div>
+                {isLoading ? <div>Loading...</div> : (
+                <ul id="card-container">
+                    {
+                        releases &&
+                        releases.map(({ _id, title, producer, imageUrl, date }) => {
+                            return (
                                 <li className="card" key={_id}>
-                                <ReleaseCard title={title} producer={producer} imageUrl={imageUrl}/>
-                                <button onClick={() => handleDisplayEditForm(_id)}>Edit</button>
-                                {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} getReleases={getReleases}/>}
-                                <button onClick={() => displayWarning(_id)}>Delete</button>
-                                {releaseWarning && idToDelete === _id && <WarningRelease deleteRelease={deleteRelease} setReleaseWarning={setReleaseWarning} idToDelete={_id} />}
+                                    <ReleaseCard title={title} producer={producer} imageUrl={imageUrl} />
+                                    <button onClick={() => handleDisplayEditForm(_id)}>Edit</button>
+                                    {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} getReleases={getReleases} />}
+                                    <button onClick={() => displayWarning(_id)}>Delete</button>
+                                    {releaseWarning && idToDelete === _id && <WarningRelease deleteRelease={deleteRelease} setReleaseWarning={setReleaseWarning} idToDelete={_id} />}
                                 </li>
                             )
-                    })
-                }
-            </ul>
-        </section>
+                        })
+                    }
+                </ul>
+                )}
+            </section>
+        )}
+        </>
     )
 }
 
