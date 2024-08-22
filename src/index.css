@@ -51,7 +51,7 @@ body {
   font-size: 4px;
     --color-background-light: rgb(246, 255, 254); /* Para fondos claros */
     --color-background-dark: #27272B; /* Para fondos oscuros, títulos y texto sobre fondo claro */
-    --color-text-muted: #BABABA; /* Para texto menos destacado y bordes */
+    --color-text-muted: hsl(0, 0%, 53%); /* Para texto menos destacado y bordes */
     --color-call-to-action: rgb(116, 238, 35);
     --color-call-to-action-2: rgba(116, 238, 35, 0.5);
 }
