@@ -37,7 +37,7 @@ form {
       color: #000000;
     }
   
-    button{
+    /* button{
       padding: 0.5rem 1rem;
       border: none;
      
@@ -46,5 +46,5 @@ form {
       font-size: 1.2rem;
       cursor: pointer;
       transition: 300ms;
-    }
+    } */
   }
