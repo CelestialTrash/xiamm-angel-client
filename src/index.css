@@ -41,7 +41,7 @@
 body {
   min-height: 100vh;
   font-family: 'square_sans_serif', sans-serif;
-  background-image: url(./assets/BackgroundImg/Fondo-xyamm.png);
+  background-color:rgb(246, 255, 254) ;
   
   
 }
@@ -49,7 +49,9 @@ body {
 
 :root{
   font-size: 4px;
-
+    --color-background-light: rgb(246, 255, 254); /* Para fondos claros */
+    --color-background-dark: #27272B; /* Para fondos oscuros, títulos y texto sobre fondo claro */
+    --color-text-muted: #BABABA; /* Para texto menos destacado y bordes */
 }
 
 #root {
