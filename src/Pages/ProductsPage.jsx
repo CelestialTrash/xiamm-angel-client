@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react"
+import { AuthContext } from "../context/user.context"
 import axios from "axios";
 import ProductForm from "../Components/ProductForm";
 import EditProductForm from "../Components/EditProductForm";
 import WarningProduct from "../Components/WarningProduct";
 import "./ProductsPage.css";
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 const storedToken = localStorage.getItem("Authorization");
