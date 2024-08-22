@@ -1,33 +1,57 @@
-button{
-    border: 1px solid red;
+button {
     font-family: 'square_sans_serif';
+    margin: 1rem;
 }
 
-button:hover{
+button:hover {
     transform: scale(0.9);
     cursor: pointer;
 }
 
 .signup-btn, 
 .login-btn,
-.add-btn,
 .save-btn,
-.yes-btn{
+.yes-btn {
     width: 30rem;
     background-color: var(--color-call-to-action);
 }
 
 .cancel-btn,
-.delete-btn,
-.no-btn{
-    border: 3px solid var(--color-call-to-action-2)
+.delete-btn{
+    background-color: transparent;
+    border: 3px solid var(--color-call-to-action-2);
+    height: 8rem;
+    width: 30rem;
+}
+
+.no-btn {
+    background-color: transparent;
+    border: 3px solid var(--color-call-to-action);
+    height: 8rem;
+    width: 30rem;
+}
+
+.add-btn {
+    width: 70rem;
+    height: 10rem;
+    background-color: var(--color-call-to-action);
+    font-size: 4rem;
 }
 
 
 .upload-btn,
-.edit-btn {
+.edit-btn,
+.purchase-btn {
+    height: 8rem;
     width: 30rem;
     background-color: var(--color-call-to-action-2);
-    border: 3px solid var(--color-call-to-action-2)
+    border: 3px solid var(--color-call-to-action-2);
+}
+
+.save-btn,
+.yes-btn {
+    height: 8rem;
+    width: 30rem;
+    border: 3px solid var(--color-call-to-action);
 }
 
