@@ -24,19 +24,22 @@ function Navbar({ closeNavbar, isNavbarClosing }) {
     return (
         <div className={`navbar-container ${!isNavbarClosing ? '' : 'fadeout'}`}>
             <div className="text-container">
+            <Link to="/" onClick={closeNavbar}>
+                    <h5 className="link-hover">HomePage</h5>
+                </Link>
                 <Link to="/releases" onClick={closeNavbar}>
-                    <h2 className="link-hover">Releases</h2>
+                    <h5 className="link-hover">Releases</h5>
                 </Link>
                 <Link to="/products" onClick={closeNavbar}>
-                    <h2 className="link-hover">Merch</h2>
+                    <h5 className="link-hover">Merch</h5>
                 </Link>
                 <Link to="/bio" onClick={closeNavbar}>
-                    <h2 className="link-hover">Bio</h2>
+                    <h5 className="link-hover">Bio</h5>
                 </Link>
-               {user && <h2 onClick={() => {
+               {user && <h5 onClick={() => {
                     handleLogout()
                     closeNavbar()
-                    }} >Log Out</h2>}
+                    }} >Log Out</h5>}
             </div>
         </div>
     );
