@@ -38,17 +38,18 @@ function ProductForm() {
   };
   return (
     <div className="create-product-layout">
-      <form className="create-product-form" onSubmit={handleSubmit}>
+      <form className="default-form" onSubmit={handleSubmit}>
         <h3> Create Product</h3>
-        <label> Product Title</label>
-        <textarea
+       {/*  <label> Product Title</label> */}
+        <input
           required
+          placeholder="Product Title"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           type="text"
         />
-        <label> Product Price</label>
-        <textarea
+       {/*  <label> Product Price</label> */}
+        <input
           required
           value={price}
           onChange={(event) => setPrice(event.target.value)}
