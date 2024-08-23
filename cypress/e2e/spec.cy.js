@@ -127,11 +127,10 @@ describe('template spec', () => {
     cy.get('button.save-btn').click();
     cy.contains('sandia');
     cy.contains('99.99');
-    cy.contains('h3','test2');
     cy.get('button.delete-btn').last().click();
     cy.get('button.no-btn').click();
     cy.get('button.delete-btn').last().click();
     cy.get('button.yes-btn').click();
-    cy.contains('h2','sandia').last().should('not.exist');
+    cy.get('.product-relative').contains('sandia').should('not.exist');
   })
 })

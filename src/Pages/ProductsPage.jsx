@@ -11,7 +11,7 @@ import "./ProductsPage.css";
 import Loader from "../Components/Loader";
 
 const API_URL = import.meta.env.VITE_API_URL;
-const storedToken = localStorage.getItem("Authorization");
+
 
 function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -19,9 +19,10 @@ function ProductsPage() {
   const [showWarning, setShowWarning] = useState(false);
   const [idToDelete, setIdToDelete] = useState(null);
   const navigate = useNavigate();
-
+  const storedToken = localStorage.getItem("Authorization");
   //Get Products
   function getProducts() {
+    
     axios
       .get(`${API_URL}/api/products`)
       .then((response) => {
@@ -35,7 +36,7 @@ function ProductsPage() {
 
   //Edit Products
   const [editProductId, setEditProductId] = useState(null);
-
+   
   const handleDisplayEditForm = (productId) => {
     return setEditProductId(productId);
   };
@@ -46,6 +47,7 @@ function ProductsPage() {
 
   // Delete Products
   function deleteProduct(id) {
+    const storedToken = localStorage.getItem("Authorization");  
     axios
       .delete(`${API_URL}/api/products/${id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
