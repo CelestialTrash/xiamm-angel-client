@@ -52,7 +52,7 @@ function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getRe
 
     return(
         <section className="form-section">
-            <form onSubmit={handleEditRelease}>
+            <form id="edit-release-form" onSubmit={handleEditRelease}>
             <h1>Edit release</h1>
                 <label htmlFor="title">Title</label>
                 <input onChange={(e) => setNewTitle(e.target.value)} type="text" name="title" id="title" value={newTitle} />
@@ -61,12 +61,13 @@ function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getRe
                 <label htmlFor="producer">Producer</label>
                 <input onChange={(e) => setNewProducer(e.target.value)} type="text" name="producer" id="producer" value={newProducer} />
                 <label htmlFor="imageUrl">Image</label>
-                <div>{<UploadWidget onUpload={handleUpload} />}</div>
+                <div>{<UploadWidget onUpload={handleUpload} />}
                 <img src={imageUrl} alt="" />
 
                 <button className="save-btn" type="submit">Save</button>
                 <button className="cancel-btn" type="button" onClick={cancelEdit}>Cancel</button>
                 <p className="error">{errorMessage}</p>
+                </div>
             </form>
         </section>
     )

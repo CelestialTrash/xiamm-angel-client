@@ -12,7 +12,7 @@
   .warning-card {
     background-color: var(--color-background-light);
     color: var(--color-background-dark);
-    width: 75rem;
+    width: 60rem;
     height: 70rem;
     display: flex;
     flex-direction: column;
