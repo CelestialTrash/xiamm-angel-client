@@ -9,7 +9,11 @@ button:hover {
 }
 
 .signup-btn, 
-.login-btn,
+.login-btn{
+    width: 40rem;
+    background-color: var(--color-call-to-action);
+}
+
 .save-btn,
 .yes-btn {
     width: 30rem;
