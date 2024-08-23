@@ -5,16 +5,16 @@ import { useState } from "react"
 import UploadWidget from "./UploadWidget";
 
 const API_URL = import.meta.env.VITE_API_URL
-const authToken = localStorage.getItem("Authorization")
 
 function EditProductForm({id, title, price, imageUrl, cancelEdit,getProducts}) {
     const [newTitle, setNewTitle] = useState(title)
     const [newPrice, setNewPrice] = useState(price)
     const [newImage, setNewImage] = useState(imageUrl)
     const [errorMessage, setErrorMessage] = useState()
-
+    
     const handleEditProduct = (e) => {
         e.preventDefault()
+        const authToken = localStorage.getItem("Authorization")
 
         const updatedProduct = {
             title: newTitle,

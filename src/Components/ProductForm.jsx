@@ -9,18 +9,20 @@ import { useState } from "react";
 import UploadWidget from "./UploadWidget";
 
 const API_URL = import.meta.env.VITE_API_URL;
-const storedToken = localStorage.getItem("Authorization");
+
 
 function ProductForm({setDisplayAddProductForm}) {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState();
   const [image, setImage] = useState("");
   const navigate = useNavigate();
+  
 
   const handleSubmit = (e) => {
     const newProduct = { title, price, imageUrl: image };
     e.preventDefault();
-    /* console.log(storedToken); */
+    const storedToken = localStorage.getItem("Authorization");
+    /* console.log("STORED TOKEN BEFORE CREATING PRODUCT: ",storedToken); */
 
     axios
       .post(`${API_URL}/api/products`, newProduct, {
