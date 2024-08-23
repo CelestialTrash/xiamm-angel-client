@@ -4,8 +4,9 @@ function ReleaseCard({title, producer, imageUrl}) {
     return(
         <div className="card-info">
             <img src={imageUrl} alt={title} />
-            <h2>{title}</h2>
-            <h3>{producer}</h3>
+            <h3>{title}</h3>
+            <small>Produced by</small>
+            <p>{producer}</p>
         </div>
     )
 }

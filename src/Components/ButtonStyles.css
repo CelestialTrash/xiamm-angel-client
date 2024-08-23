@@ -9,7 +9,11 @@ button:hover {
 }
 
 .signup-btn, 
-.login-btn,
+.login-btn{
+    width: 40rem;
+    background-color: var(--color-call-to-action);
+}
+
 .save-btn,
 .yes-btn {
     width: 30rem;
@@ -18,8 +22,8 @@ button:hover {
 
 .cancel-btn,
 .delete-btn{
-    background-color: transparent;
-    border: 3px solid var(--color-call-to-action-2);
+    background-color: white;
+    border: 3px solid var(--color-call-to-action);
     height: 8rem;
     width: 30rem;
 }
@@ -36,6 +40,7 @@ button:hover {
     height: 10rem;
     background-color: var(--color-call-to-action);
     font-size: 4rem;
+    margin: 4rem 0;
 }
 
 
@@ -45,7 +50,7 @@ button:hover {
     height: 8rem;
     width: 30rem;
     background-color: var(--color-call-to-action-2);
-    border: 3px solid var(--color-call-to-action-2);
+    border: 3px solid var(--color-call-to-action);
 }
 
 .save-btn,

@@ -1,7 +1,7 @@
 .menu-section {
     position: relative;
     width: 100vw;
-    height: 45px;
+    height:12rem;
     display: flex;
     flex-direction: row;
     align-items: center;

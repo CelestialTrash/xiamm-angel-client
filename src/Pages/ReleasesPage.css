@@ -8,16 +8,32 @@
     text-align: center;
 
     img {
-        width: 50rem;
-        height: 50rem;
+        width: 60rem;
+        height: 60rem;
+
     }
 }
 
 
-
 #card-container {
+    width: 95rem;
     padding: 1rem;
     list-style: none;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10rem;
 }
 
+#edit-release-form {
+    width: 80rem;
+    background-color: white;
+    z-index: 3;
+    padding: 1rem 3rem;
+
+    input{
+        width: 100%
+    }
+}

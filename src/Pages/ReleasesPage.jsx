@@ -4,10 +4,12 @@ import EditReleaseForm from "../Components/EditReleaseForm"
 import WarningRelease from "../Components/WarningRelease"
 import { useState, useEffect } from "react"
 import axios from "axios"
-import './ReleasesPage.css'
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import { AuthContext } from "../context/user.context"
+import "./ReleasesPage.css"
+import "../Components/ReleaseCard.css"
+import Loader from "../Components/Loader"
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -86,7 +88,7 @@ function ReleasesPage() {
 
     return (
         <>
-            {isLoading ? <div>Loading...</div> : (
+            {isLoading ? <Loader /> : (
                 <section id="releases-page">
                     {user ? (
                         <div id="release-form-container">
@@ -95,7 +97,7 @@ function ReleasesPage() {
                         </div>
                     ) : <div></div>
                     }
-                    {isLoading ? <div>Loading...</div> : (
+                    {isLoading ? <Loader /> : (
                         <ul id="card-container">
                             {
                                 releases &&
@@ -103,6 +105,7 @@ function ReleasesPage() {
                                     return (
                                         <li className="card" key={_id}>
                                             <ReleaseCard title={title} producer={producer} imageUrl={imageUrl} />
+
                                             {user ? (
                                                 <div className="card-btn-container">
                                                     <button className="edit-btn" onClick={() => handleDisplayEditForm(_id)}>Edit</button>
@@ -110,8 +113,15 @@ function ReleasesPage() {
                                                     <button className="delete-btn" onClick={() => displayWarning(_id)}>Delete</button>
                                                     {releaseWarning && idToDelete === _id && <WarningRelease deleteRelease={deleteRelease} setReleaseWarning={setReleaseWarning} idToDelete={_id} />}
                                                 </div>
-
                                             ) : <div></div>}
+                                            <div className="corners">
+                                                <div className="top">
+                                                <div className="top-left"></div>
+                                                </div>
+                                                <div className="bottom">
+                                                    <div className="bottom-right"></div>
+                                                </div>
+                                            </div>
                                     
                                 </li>
                             )
