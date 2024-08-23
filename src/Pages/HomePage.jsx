@@ -10,7 +10,7 @@ function HomePage() {
     useEffect(() => {
         
         axios
-        .get(`${API_URL}/api/releases?sort=date&order=desc&limit=1`)
+        .get(`${API_URL}/api/homepage/release`)
             .then((response) => {
                 if (response.data && response.data.length > 0) {
                     setLatestRelease(response.data[0]); 

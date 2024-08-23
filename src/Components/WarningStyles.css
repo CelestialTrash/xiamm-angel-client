@@ -22,8 +22,8 @@
     left: 50%;
     top: 50%;
     gap: 1rem;
-    transform: translate(-50%, -50%);
-    animation: slide-in 800ms;
+    /* transform: translate(-50%, -50%);
+    animation: slide-in 800ms; */
     padding: 6rem 10rem;
 
     small{
@@ -33,7 +33,7 @@
     }
   }
   
-  @keyframes slide-in {
+/*   @keyframes slide-in {
     0% {
       transform: translate(-600%, -50%);
     }
@@ -44,4 +44,4 @@
       transform: translate(-50%, -50%);
     }
   }
-  
+   */

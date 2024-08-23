@@ -36,10 +36,10 @@ function ProductDetailsPage() {
 
   return (
     <div className="product-details-container">
-      <h2>{title}</h2>
       <img
             src={image}
             alt="product-image"/>
+            <h4>{title}</h4>
       <h3>{price}</h3>
     </div>
   );
