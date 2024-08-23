@@ -35,7 +35,8 @@ button:hover {
     width: 30rem;
 }
 
-.add-btn {
+.add-btn,
+.return-btn {
     width: 70rem;
     height: 10rem;
     background-color: var(--color-call-to-action);
