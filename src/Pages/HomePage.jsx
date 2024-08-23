@@ -1,32 +1,49 @@
 import './HomePage.css'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 function HomePage() {
+    const [latestRelease, setLatestRelease] = useState(null);
+    useEffect(() => {
+        
+        axios
+        .get(`${API_URL}/api/releases?sort=date&order=desc&limit=1`)
+            .then((response) => {
+                if (response.data && response.data.length > 0) {
+                    setLatestRelease(response.data[0]); 
+                }
+            })
+            .catch((error) => console.error("Error fetching latest release:", error));
+    }, []);
+
     return(
         <section className='home-page-section'>
         <div className="social-links-section">
             <div className='social-links-container'>
-            <p>S</p>
-            <p>S</p>
-            <p>Y</p>
-            <p>I</p>
-            <p>IMG</p>
-
+            <img src='src/assets/SocialMediaSVG/soundcloud-svgrepo-com.svg' className='soundcloud-logo'></img>
+            <img src='src/assets/SocialMediaSVG/spotify-logo-fill-svgrepo-com.svg' className='spotify-logo'></img>
+            <img src='src/assets/SocialMediaSVG/instagram-svgrepo-com.svg' className='instagram-logo'></img>
+            <img src='src/assets/SocialMediaSVG/youtube-168-svgrepo-com.svg' className='youtube-logo'></img>
+            
+                
             </div>
 
         </div>
         <div className="image-container">
-           {/*  <h2>test</h2>
-            <h3>test</h3>
-            <h4>test</h4>
-            <h5>test</h5>
-            <h6>test</h6>
-            <p> mmodi officiis exercitationem itaque aliquam illo recusandae, 
-            non explicabo quia consequuntur quod?</p>  */}
-            
-        </div>
+                {latestRelease && (
+                    <div className="latest-release">
+                        <img src={latestRelease.imageUrl} alt={latestRelease.title} />
+                         <h5>{latestRelease.title}</h5> 
+                        {/* <p>Produced by: {latestRelease.producer}</p> */}
+                        {/* <p>Release Date: {new Date(latestRelease.date).toLocaleDateString()}</p> */}
+                    </div>
+                )}
+            </div>
         <div className='title-container'>
-        <h1>Xyamm Angel</h1>
+        <h1>Ditto Artist</h1>
         </div>
         
         </section>
