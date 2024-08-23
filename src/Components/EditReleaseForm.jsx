@@ -52,7 +52,7 @@ function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getRe
 
     return(
         <section className="form-section">
-            <form id="edit-release-form" onSubmit={handleEditRelease}>
+            <form id="edit-form" onSubmit={handleEditRelease}>
             <h1>Edit release</h1>
                 <label htmlFor="title">Title</label>
                 <input onChange={(e) => setNewTitle(e.target.value)} type="text" name="title" id="title" value={newTitle} />

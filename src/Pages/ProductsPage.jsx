@@ -132,7 +132,7 @@ function ProductsPage() {
                         className="delete-btn"
                         onClick={() => displayWarning(eachProduct._id)}
                       >
-                        🗑️
+                        Delete
                       </button>
                       {showWarning && idToDelete === eachProduct._id && (
                         <WarningProduct

@@ -47,17 +47,18 @@ function EditProductForm({id, title, price, imageUrl, cancelEdit,getProducts}) {
 
     return(
         <section className="form-section">
-            <form onSubmit={handleEditProduct}>
+            <form id="edit-form" onSubmit={handleEditProduct}>
             <h1>Edit Product</h1>
                 <label htmlFor="title">Title</label>
                 <input onChange={(e) => setNewTitle(e.target.value)} type="text" name="title" id="title" value={newTitle} />
                 <label htmlFor="price">Price</label>
                 <input onChange={(e) => setNewPrice(e.target.value)} type="Number" name="price" id="price" value={newPrice} />
                 <label htmlFor="image">Product Image URL</label>
-                <div>{<UploadWidget onUpload={handleUpload} />}</div>
+                <div>{<UploadWidget onUpload={handleUpload} />}
                 <img src={newImage} alt="" />
                 <button className="save-btn" type="submit">Save</button>
                 <button className="cancel-btn" type="button" onClick={cancelEdit}>Cancel</button>
+                </div>
                 <p className="error">{errorMessage}</p>
             </form>
         </section>
