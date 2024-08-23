@@ -116,7 +116,7 @@ function ReleasesPage() {
                                             ) : <div></div>}
                                             <div className="corners">
                                                 <div className="top">
-                                                <div className="top-left"></div>
+                                                    <div className="top-left"></div>
                                                 </div>
                                                 <div className="bottom">
                                                     <div className="bottom-right"></div>

@@ -1,12 +1,16 @@
 //CSS
 import './NotFoundPage.css'
+import { Link } from 'react-router-dom';
 
 function NotFoundPage() {
-    return(
+    return (
         <section className="not-found-page-section">
-        <div className="not-found-page-container">
-            <h1>404:PAGE NOT FOUND</h1>
-        </div>
+            <div className="not-found-page-container">
+                <h1>404 : <br /> PAGE <br /> NOT FOUND</h1>
+            <Link to="/">
+                <button className="return-btn">Return to Home</button>
+            </Link>
+            </div>
         </section>
     )
 }
