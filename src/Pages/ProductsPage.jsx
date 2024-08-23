@@ -8,6 +8,7 @@ import ProductForm from "../Components/ProductForm";
 import EditProductForm from "../Components/EditProductForm";
 import WarningProduct from "../Components/WarningProduct";
 import "./ProductsPage.css";
+import Loader from "../Components/Loader";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const storedToken = localStorage.getItem("Authorization");
@@ -64,7 +65,7 @@ function ProductsPage() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 1000);
   }, []);
 
   //User checker
@@ -73,7 +74,7 @@ function ProductsPage() {
   return (
     <section className="product-page-section">
       {isLoading ? (
-        <div>Loading...</div>
+        <Loader />
       ) : (
         <div>
           {user ? (
