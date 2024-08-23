@@ -9,6 +9,7 @@ import { useContext } from "react"
 import { AuthContext } from "../context/user.context"
 import "./ReleasesPage.css"
 import "../Components/ReleaseCard.css"
+import Loader from "../Components/Loader"
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -87,7 +88,7 @@ function ReleasesPage() {
 
     return (
         <>
-            {isLoading ? <div>Loading...</div> : (
+            {isLoading ? <Loader /> : (
                 <section id="releases-page">
                     {user ? (
                         <div id="release-form-container">
@@ -104,6 +105,7 @@ function ReleasesPage() {
                                     return (
                                         <li className="card" key={_id}>
                                             <ReleaseCard title={title} producer={producer} imageUrl={imageUrl} />
+
                                             {user ? (
                                                 <div className="card-btn-container">
                                                     <button className="edit-btn" onClick={() => handleDisplayEditForm(_id)}>Edit</button>
