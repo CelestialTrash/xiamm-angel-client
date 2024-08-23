@@ -1,16 +1,31 @@
 .bio-section {
     width: 100vw;
-    height: 695px;
-    border: red solid 1px;
+    height: 94.9vh;
+    
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 4rem;
+    top: 0;
 
+    h1 {
+        padding-right: 67rem;
+    }
+    
+   
     
 }
 
 .bio-container {
-    border: red solid 1px;
-    width: 90%;
+    width: 80%;
+    min-height: 100rem;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: rgb(116, 238, 35) solid 3px;
+    gap: 4rem;
 }
