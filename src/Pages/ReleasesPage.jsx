@@ -97,7 +97,7 @@ function ReleasesPage() {
                         </div>
                     ) : <div></div>
                     }
-                    {isLoading ? <div>Loading...</div> : (
+                    {isLoading ? <Loader /> : (
                         <ul id="card-container">
                             {
                                 releases &&
