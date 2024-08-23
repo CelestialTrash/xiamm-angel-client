@@ -20,7 +20,7 @@ function ProductForm({setDisplayAddProductForm}) {
   const handleSubmit = (e) => {
     const newProduct = { title, price, imageUrl: image };
     e.preventDefault();
-    /* console.log(storedToken); */
+    console.log("STORED TOKEN BEFORE CREATING PRODUCT: ",storedToken);
 
     axios
       .post(`${API_URL}/api/products`, newProduct, {
