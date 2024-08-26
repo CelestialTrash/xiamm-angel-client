@@ -15,7 +15,7 @@ import ProductDetailsPage from "./Pages/ProductDetailsPage";
 import './Components/ButtonStyles.css'
 
 function App() {
-  const { user } = useContext(AuthContext);
+  
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
   const [isNavbarClosing, setIsNavbarClosing] = useState(false);
 
@@ -54,7 +54,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/Bio" element={<Bio />} />
         <Route path="/releases" element={<ReleasesPage />} />
-        <Route path="/releases/:releaseId" element={<h1>Release Details</h1>} />
+         
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:productId" element={<ProductDetailsPage />} />
         <Route path="/*" element={<NotFoundPage />} />
