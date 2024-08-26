@@ -76,6 +76,7 @@ function ProductDetailsPage() {
         <h4>Description</h4>
         <p>{description}</p>
       </div>
+      <button className="purchase-btn">Purchase</button>
       {user ? (
         <>
           <button
