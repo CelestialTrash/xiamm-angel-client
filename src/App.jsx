@@ -1,18 +1,22 @@
+//REACT
 import { useState, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import { AuthContext } from "./context/user.context";
+//COMPONENTS
+import HamburguerIcon from "./Components/HamburguerIcon";
+import Navbar from "./Components/Navbar";
+//CSS
+import './Components/ButtonStyles.css'
+import "./App.css";
+//PAGES
 import SignupPage from "./Pages/SignupPage";
 import LoginPage from "./Pages/LoginPage";
 import Bio from "./Pages/Bio";
-import { AuthContext } from "./context/user.context";
-import HamburguerIcon from "./Components/HamburguerIcon";
 import HomePage from "./Pages/HomePage";
 import ReleasesPage from "./Pages/ReleasesPage";
-import Navbar from "./Components/Navbar";
-import "./App.css";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ProductsPage from "./Pages/ProductsPage";
 import ProductDetailsPage from "./Pages/ProductDetailsPage";
-import './Components/ButtonStyles.css'
 
 function App() {
   

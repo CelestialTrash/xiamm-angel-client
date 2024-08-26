@@ -1,15 +1,18 @@
+//COMPONENTS
 import ReleaseCard from "../Components/ReleaseCard"
 import CreateReleaseForm from "../Components/CreateReleaseForm"
 import EditReleaseForm from "../Components/EditReleaseForm"
 import WarningRelease from "../Components/WarningRelease"
-import { useState, useEffect } from "react"
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
-import { useContext } from "react"
-import { AuthContext } from "../context/user.context"
-import "./ReleasesPage.css"
-import "../Components/ReleaseCard.css"
 import Loader from "../Components/Loader"
+//CSS
+import "../Components/ReleaseCard.css"
+import "./ReleasesPage.css"
+//REACT
+import { useState, useEffect,useContext } from "react"
+import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/user.context"
+//AXIOS
+import axios from "axios"
 
 const API_URL = import.meta.env.VITE_API_URL
 

@@ -1,6 +1,9 @@
+//CSS
 import "./ProductForm.css";
 import "./ButtonStyles.css";
+//AXIOS
 import axios from "axios";
+//REACT
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 

@@ -1,10 +1,11 @@
+//CSS
 import "./ProductDetailsPage.css";
-
+//AXIOS
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
+//REACT
+import { useParams , Link } from "react-router-dom";
+import { useState,useEffect } from "react";
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 const storedToken = localStorage.getItem("Authorization");

@@ -1,4 +1,6 @@
+//REACT
 import { useState, useEffect } from "react";
+//CSS
 import "./HamburguerIcon.css";
 
 function HamburguerIcon({ toggleNavbar, resetIcon }) {

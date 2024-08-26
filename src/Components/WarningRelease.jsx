@@ -1,3 +1,4 @@
+//CSS
 import "./WarningStyles.css"
 
 function WarningRelease({ deleteRelease, setReleaseWarning, idToDelete }) {

@@ -2,7 +2,7 @@
 
 ## Deployed App
 
-[Deployed version](#) *([Insert link to your deployed app here](https://dito-artist.netlify.app))*
+[Deployed version](#)(https://dito-artist.netlify.app)
 
 ## Table of Contents
 - About
@@ -80,4 +80,4 @@ The Artist Profile Template App is designed to help artists create and manage th
 
 
 ## Credits
-- Developed by **[Aquiles Hinestrosa , Kim Delgado and Esteban Escalante]** *
+- Developed by Aquiles Hinestrosa , Kim Delgado and Esteban Escalante.

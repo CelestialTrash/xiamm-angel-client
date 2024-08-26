@@ -1,3 +1,4 @@
+//CSS
 import "./WarningStyles.css"
 
 function WarningProduct({ setShowWarning, idToDelete, deleteProduct }) {

@@ -1,6 +1,10 @@
-import "./FormStyles.css"
-import axios from "axios"
+//REACT
 import { useState } from "react"
+//CSS
+import "./FormStyles.css"
+//AXIOS
+import axios from "axios"
+//CLOUDINARY
 import UploadWidget from "./UploadWidget"
 
 const API_URL = import.meta.env.VITE_API_URL

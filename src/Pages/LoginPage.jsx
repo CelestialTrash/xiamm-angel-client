@@ -1,9 +1,11 @@
-import { useState } from "react";
+//CSS
 import "../Components/FormStyles.css";
-import axios from "axios";
+//REACT
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react"
 import { AuthContext } from "../context/user.context"
+//AXIOS
+import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 

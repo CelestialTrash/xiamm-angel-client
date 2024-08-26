@@ -1,3 +1,4 @@
+//CSS
 import './ReleaseCard.css'
 
 function ReleaseCard({title, producer, imageUrl}) {
