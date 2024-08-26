@@ -6,25 +6,25 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-wrap: wrap;
+    
 
-    img {
-        width: 60rem;
-        height: 60rem;
-
-    }
+    
 }
 
 
 #card-container {
-    width: 95rem;
-    padding: 1rem;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 10rem;
+    width: 100%;
+   gap: 20rem;
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   padding: 5rem 5rem;
+
+
+
 }
 
 #edit-form {
@@ -36,4 +36,32 @@
     input{
         width: 100%
     }
+}
+
+.card {
+    width: 97rem;
+    padding: 1rem;
+    list-style: none;
+    gap: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 70rem;
+        height: 70rem;
+    }
+    
+    h2 {
+        font-size: 6rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h3 {
+        font-size: 6rem;
+    }
+
 }
