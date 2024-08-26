@@ -21,13 +21,16 @@ function ProductsPage() {
   const [showWarning, setShowWarning] = useState(false);
   const [idToDelete, setIdToDelete] = useState(null);
   const [editProductId, setEditProductId] = useState(null);
-  
+  const [isLoading, setIsLoading] = useState(true);
+
+  //Get Products
   function getProducts() {
-    
+    setIsLoading(true)
     axios
       .get(`${API_URL}/api/products`)
       .then((response) => {
         setProducts(response.data);
+        setIsLoading(false)
       })
       .catch((error) => console.log(error));
   }
@@ -61,13 +64,6 @@ function ProductsPage() {
     setIdToDelete(id);
   };
 
-  //Loader
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
 
   //User checker
   const { user } = useContext(AuthContext);
