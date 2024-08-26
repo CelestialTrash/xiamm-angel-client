@@ -40,7 +40,7 @@ function App() {
     }, 400);
   };
 
-  /* console.log(user);  */
+
 
   return (
     <>

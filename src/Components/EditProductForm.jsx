@@ -24,9 +24,9 @@ function EditProductForm({id, title, price, imageUrl, cancelEdit,getProducts}) {
 
         if(authToken) {
             axios.put(`${API_URL}/api/products/${id}`, updatedProduct, { headers: { Authorization: `Bearer ${authToken}`} })
-            .then((response) => {
+            /* .then((response) => {
                 console.log("Product updated", response);
-            })
+            }) */
             .then(() => getProducts())
             .then(() => cancelEdit()) 
             .catch((error) => {

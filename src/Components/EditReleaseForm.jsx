@@ -26,9 +26,9 @@ function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getRe
 
         if(authToken) {
             axios.put(`${API_URL}/api/releases/${id}`, updatedRelease, { headers: { Authorization: `Bearer ${authToken}`} })
-            .then((response) => {
+            /* .then((response) => {
                 console.log("Release updated!", response);
-            })
+            }) */
             .then(() => {
                 getReleases();
             })

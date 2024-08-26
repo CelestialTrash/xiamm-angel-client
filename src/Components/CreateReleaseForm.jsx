@@ -28,9 +28,9 @@ function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
         if(authToken) {
 
             axios.post(`${API_URL}/api/releases`, newRelease, { headers: { Authorization: `Bearer ${authToken}`} })
-                .then((response) => {
+                /* .then((response) => {
                     console.log("Release posted!", response);
-                })
+                }) */
                 .then(() => getReleases())
                 .then(() => cancelCreate())
                 .catch((error) => {

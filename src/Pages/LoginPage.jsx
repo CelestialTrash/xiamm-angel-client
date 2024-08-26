@@ -22,7 +22,6 @@ function LoginPage() {
     axios
       .post(`${API_URL}/auth/login`, user)
       .then((response) => {
-        console.log("User is logged in!", response);
         const authToken = response.data.authToken;
         localStorage.setItem("Authorization", authToken)
         verifyUser();

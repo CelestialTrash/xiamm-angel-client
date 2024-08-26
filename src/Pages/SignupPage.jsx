@@ -1,6 +1,6 @@
 //REACT
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 //AXIOS
 import axios from "axios";
 
@@ -15,6 +15,7 @@ function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage,setErrorMessage] = useState("")
+  const navigate = useNavigate();
 
   const handleSubmit =  (event) => {
     event.preventDefault();
@@ -28,8 +29,7 @@ function SignupPage() {
     axios
         .post(`${API_URL}/auth/signup`, newUser)
         .then((response) => {
-          console.log("User created!", response);
-          Navigate("/login")
+          navigate("/login")
         })
         .catch((error) => {
           setErrorMessage(error.response.data.message)
@@ -39,7 +39,7 @@ function SignupPage() {
           }, 10000);
         })
     
-        console.log(newUser);
+        
   }
 
 
