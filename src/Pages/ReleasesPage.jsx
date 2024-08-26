@@ -21,6 +21,7 @@ function ReleasesPage() {
     //Create Form
     const [displayForm, setDisplayForm] = useState(false)
     const [releases, setReleases] = useState([])
+  
     
     const handleDisplayCreateForm = () => {
         return setDisplayForm(!displayForm)
@@ -30,8 +31,7 @@ function ReleasesPage() {
         setDisplayForm(false);
     };
 
-    //Edit Form
-    const [editReleaseId, setEditReleaseId] = useState(null)
+    
     
     const handleDisplayEditForm = (releaseId) => {
         return setEditReleaseId(releaseId)
