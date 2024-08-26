@@ -1,6 +1,10 @@
-import './HomePage.css'
-import axios from 'axios';
+//REACT
 import { useEffect, useState } from 'react';
+//CSS
+import './HomePage.css'
+
+//Axios
+import axios from 'axios';
 
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -37,8 +41,7 @@ function HomePage() {
                     <div className="latest-release">
                         <img src={latestRelease.imageUrl} alt={latestRelease.title} />
                          <h5>{latestRelease.title}</h5> 
-                        {/* <p>Produced by: {latestRelease.producer}</p> */}
-                        {/* <p>Release Date: {new Date(latestRelease.date).toLocaleDateString()}</p> */}
+                    
                     </div>
                 )}
             </div>
