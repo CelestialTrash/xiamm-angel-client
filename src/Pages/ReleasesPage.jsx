@@ -21,7 +21,7 @@ function ReleasesPage() {
     //Create Form
     const [displayForm, setDisplayForm] = useState(false)
     const [releases, setReleases] = useState([])
-  
+    const [isLoading, setIsLoading] = useState(true)
     
     const handleDisplayCreateForm = () => {
         return setDisplayForm(!displayForm)
@@ -43,9 +43,11 @@ function ReleasesPage() {
 
     //Get items
     function getReleases() {
+        setIsLoading(true)
         axios.get(`${API_URL}/api/releases`)
             .then((response) => {
                 setReleases(response.data);
+                setIsLoading(false)
             })
             .catch((error) => {
                 console.error(error?.response.data.message);
@@ -60,7 +62,6 @@ function ReleasesPage() {
     //Delete item
     const [releaseWarning, setReleaseWarning] = useState(false)
     const [idToDelete, setIdToDelete] = useState("")
-    const navigate = useNavigate()
     const authToken = localStorage.getItem("Authorization")
 
     function deleteRelease(id) {
@@ -77,13 +78,6 @@ function ReleasesPage() {
         setIdToDelete(id)
     }
 
-    //Loader
-    const [isLoading, setIsLoading] = useState(true)
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 1000)
-    }, [])
 
     //User checker
     const {user} = useContext(AuthContext)
@@ -100,40 +94,38 @@ function ReleasesPage() {
                         </div>
                     ) : <div></div>
                     }
-                    {isLoading ? <Loader /> : (
-                        <ul id="card-container">
-                            {
-                                releases &&
-                                releases.map(({ _id, title, producer, imageUrl, date }) => {
-                                    return (
-                                        <li className="card" key={_id}>
-                                            <ReleaseCard title={title} producer={producer} imageUrl={imageUrl} />
+                    <ul id="card-container">
+                        {
+                            releases &&
+                            releases.map(({ _id, title, producer, imageUrl, date }) => {
+                                return (
+                                    <li className="card" key={_id}>
+                                        <ReleaseCard title={title} producer={producer} imageUrl={imageUrl} />
 
-                                            {user ? (
-                                                <div className="card-btn-container">
-                                                    <button className="edit-btn" onClick={() => handleDisplayEditForm(_id)}>Edit</button>
-                                                    {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} getReleases={getReleases} />}
-                                                    <button className="delete-btn" onClick={() => displayWarning(_id)}>Delete</button>
-                                                    {releaseWarning && idToDelete === _id && <WarningRelease deleteRelease={deleteRelease} setReleaseWarning={setReleaseWarning} idToDelete={_id} />}
-                                                </div>
-                                            ) : <div></div>}
-                                            <div className="corners">
-                                                <div className="top">
-                                                    <div className="top-left"></div>
-                                                </div>
-                                                <div className="bottom">
-                                                    <div className="bottom-right"></div>
-                                                </div>
+                                        {user ? (
+                                            <div className="card-btn-container">
+                                                <button className="edit-btn" onClick={() => handleDisplayEditForm(_id)}>Edit</button>
+                                                {editReleaseId === _id && <EditReleaseForm id={_id} title={title} producer={producer} date={date} imageUrl={imageUrl} cancelEdit={handleCancelEdit} getReleases={getReleases} />}
+                                                <button className="delete-btn" onClick={() => displayWarning(_id)}>Delete</button>
+                                                {releaseWarning && idToDelete === _id && <WarningRelease deleteRelease={deleteRelease} setReleaseWarning={setReleaseWarning} idToDelete={_id} />}
                                             </div>
-                                    
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-                )}
-            </section>
-        )}
+                                        ) : <div></div>}
+                                        <div className="corners">
+                                            <div className="top">
+                                                <div className="top-left"></div>
+                                            </div>
+                                            <div className="bottom">
+                                                <div className="bottom-right"></div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </section>
+            )}
         </>
     )
 }

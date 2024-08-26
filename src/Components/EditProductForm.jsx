@@ -9,10 +9,13 @@ import UploadWidget from "./UploadWidget";
 
 const API_URL = import.meta.env.VITE_API_URL
 
-function EditProductForm({id, title, price, imageUrl, cancelEdit,getProducts}) {
+function EditProductForm({id, title, price, imageUrl, description, size, materials, cancelEdit, getProducts}) {
     const [newTitle, setNewTitle] = useState(title)
     const [newPrice, setNewPrice] = useState(price)
-    const [newImage, setNewImage] = useState(imageUrl)
+    const [newImages, setNewImages] = useState([imageUrl])
+    const [newDescription, setNewDescription] = useState(description)
+    const [newSize, setNewSize] = useState(size)
+    const [newMaterials, setNewMaterials] = useState(materials)
     const [errorMessage, setErrorMessage] = useState()
     
     const handleEditProduct = (e) => {
@@ -22,7 +25,10 @@ function EditProductForm({id, title, price, imageUrl, cancelEdit,getProducts}) {
         const updatedProduct = {
             title: newTitle,
             price: newPrice,
-            imageUrl: newImage,
+            imageUrl: newImages,
+            description: newDescription,
+            size: newSize,
+            materials: newMaterials
         }
 
         if(authToken) {
@@ -45,7 +51,7 @@ function EditProductForm({id, title, price, imageUrl, cancelEdit,getProducts}) {
     }
 
     const handleUpload = (e) => {
-        setNewImage(e);
+        setNewImages(e);
       };
 
     return(
@@ -56,9 +62,15 @@ function EditProductForm({id, title, price, imageUrl, cancelEdit,getProducts}) {
                 <input onChange={(e) => setNewTitle(e.target.value)} type="text" name="title" id="title" value={newTitle} />
                 <label htmlFor="price">Price</label>
                 <input onChange={(e) => setNewPrice(e.target.value)} type="Number" name="price" id="price" value={newPrice} />
+                <label htmlFor="size">Size</label>
+                <input onChange={(e) => setNewSize(e.target.value)} type="text" name="size" id="size" value={newSize} />
+                <label htmlFor="size">Materials</label>
+                <input onChange={(e) => setNewMaterials(e.target.value)} type="text" name="materials" id="materials" value={newMaterials} />
+                <label htmlFor="description">Description</label>
+                <textarea onChange={(e) => setNewDescription(e.target.value)} name="description" id="description" value={newDescription}/>
                 <label htmlFor="image">Product Image URL</label>
                 <div>{<UploadWidget onUpload={handleUpload} />}
-                <img src={newImage} alt="" />
+                <img src={newImages} alt="" />
                 <button className="save-btn" type="submit">Save</button>
                 <button className="cancel-btn" type="button" onClick={cancelEdit}>Cancel</button>
                 </div>
