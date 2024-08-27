@@ -26,13 +26,26 @@
    
     width: 50vw;
     height: 100%;
-    padding-left: 15px;
+    padding-left: 4rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     
-   gap: 15px;
+    gap: 4rem;
 
+}
+
+.user-nav-tabs{
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  
+    gap: 4rem;
+
+    hr {
+        width: 50%;
+    }
 }
 
 @keyframes Fade {

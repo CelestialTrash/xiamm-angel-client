@@ -17,6 +17,7 @@ import ReleasesPage from "./Pages/ReleasesPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ProductsPage from "./Pages/ProductsPage";
 import ProductDetailsPage from "./Pages/ProductDetailsPage";
+import EditProfilePage from "./Pages/EditProfilePage";
 
 function App() {
   
@@ -56,9 +57,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/Bio" element={<Bio />} />
+        <Route path="/bio" element={<Bio />} />
+        <Route path="/edit-profile" element={<EditProfilePage />} />
         <Route path="/releases" element={<ReleasesPage />} />
-         
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:productId" element={<ProductDetailsPage />} />
         <Route path="/*" element={<NotFoundPage />} />
