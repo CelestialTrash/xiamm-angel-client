@@ -14,32 +14,16 @@ const ProductCard = ({ eachProduct, user, editProductId, handleDisplayEditForm, 
           <div>
             <h2>{eachProduct.title}</h2>
             <img
-              src={eachProduct.imageUrl}
+              src={eachProduct.imageUrl[0]}
               alt={eachProduct.title}
             />
-            <h3>{eachProduct.price}</h3>
-            <button className="purchase-btn">Purchase</button>
+            <h3>$ {eachProduct.price}</h3>
+            <button className="purchase-btn">See more</button>
           </div>
         </li>
       </Link>
       {user ? (
         <>
-          <button
-            className="edit-btn"
-            onClick={() => handleDisplayEditForm(eachProduct._id)}
-          >
-            Edit
-          </button>
-          {editProductId === eachProduct._id && (
-            <EditProductForm
-              getProducts={getProducts}
-              id={eachProduct._id}
-              title={eachProduct.title}
-              price={eachProduct.price}
-              imageUrl={eachProduct.imageUrl}
-              cancelEdit={handleCancelEdit}
-            />
-          )}
           <button
             className="delete-btn"
             onClick={() => displayWarning(eachProduct._id)}
