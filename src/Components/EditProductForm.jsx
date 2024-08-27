@@ -9,7 +9,7 @@ import UploadWidget from "./UploadWidget";
 
 const API_URL = import.meta.env.VITE_API_URL
 
-function EditProductForm({id, title, price, imageUrl, description, size, materials, cancelEdit, getProducts}) {
+function EditProductForm({id, title, price, imageUrl, description, size, materials, cancelEdit, getProduct}) {
     const [newTitle, setNewTitle] = useState(title)
     const [newPrice, setNewPrice] = useState(price)
     const [newImages, setNewImages] = useState([imageUrl])
@@ -36,11 +36,11 @@ function EditProductForm({id, title, price, imageUrl, description, size, materia
             /* .then((response) => {
                 console.log("Product updated", response);
             }) */
-            .then(() => getProducts())
+            .then(() => getProduct())
             .then(() => cancelEdit()) 
             .catch((error) => {
                 console.error(error);
-                setErrorMessage(error.response.data.message);
+                setErrorMessage("Product could not be updated");
         
                 setTimeout(() => {
                     setErrorMessage(null);

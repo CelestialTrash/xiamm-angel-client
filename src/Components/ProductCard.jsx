@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 //COMPONENTS
-import EditProductForm from "./EditProductForm";
 import WarningProduct from "./WarningProduct";
+//CSS
+import "./ProductCard.css";
 
-
-const ProductCard = ({ eachProduct, user, editProductId, handleDisplayEditForm, handleCancelEdit, showWarning, displayWarning, deleteProduct, idToDelete, getProducts }) => {
+const ProductCard = ({ eachProduct, user, showWarning, displayWarning, deleteProduct, idToDelete }) => {
   return (
     <div className="product-relative">
       <Link to={`/products/${eachProduct._id}`}>
