@@ -36,18 +36,15 @@ function ProductForm({setDisplayAddProductForm}) {
       .then((response) => {
         const newProduct = response.data;
         navigate(`/products/${newProduct._id}`); 
-        console.log(newProduct);
+       
       })
       .catch((error) => console.log(error));
   };
 
   const handleUpload = (e) => {
-    console.log(e);
+    
     setImage((prevImages) => [...prevImages, e]); // Functional update
-    console.log(image); // For debugging
-    /* const imageCopy = structuredClone(image)
-    imageCopy.push(e)
-    setImage(imageCopy); */
+   
   };
   return (
     <div className="create-product-layout">
