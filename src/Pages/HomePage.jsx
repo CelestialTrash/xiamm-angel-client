@@ -6,6 +6,13 @@ import './HomePage.css'
 //Axios
 import axios from 'axios';
 
+//ASSETS
+
+import soundcloudLogo from '../assets/SocialMediaSVG/soundcloud-svgrepo-com.svg';
+import spotifyLogo from '../assets/SocialMediaSVG/spotify-logo-fill-svgrepo-com.svg';
+import instagramLogo from '../assets/SocialMediaSVG/instagram-svgrepo-com.svg';
+import youtubeLogo from '../assets/SocialMediaSVG/youtube-168-svgrepo-com.svg';
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -27,10 +34,10 @@ function HomePage() {
         <section className='home-page-section'>
         <div className="social-links-section">
             <div className='social-links-container'>
-            <img src='src/assets/SocialMediaSVG/soundcloud-svgrepo-com.svg' className='soundcloud-logo'></img>
-            <img src='src/assets/SocialMediaSVG/spotify-logo-fill-svgrepo-com.svg' className='spotify-logo'></img>
-            <img src='src/assets/SocialMediaSVG/instagram-svgrepo-com.svg' className='instagram-logo'></img>
-            <img src='src/assets/SocialMediaSVG/youtube-168-svgrepo-com.svg' className='youtube-logo'></img>
+            <img src={soundcloudLogo} className='soundcloud-logo' alt="SoundCloud Logo" />
+      <img src={spotifyLogo} className='spotify-logo' alt="Spotify Logo" />
+      <img src={instagramLogo} className='instagram-logo' alt="Instagram Logo" />
+      <img src={youtubeLogo} className='youtube-logo' alt="YouTube Logo" />
             
                 
             </div>
