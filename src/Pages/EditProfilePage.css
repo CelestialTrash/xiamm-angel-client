@@ -1,0 +1,41 @@
+.edit-profile-form textarea {
+        width: 95%;
+        height: 45rem;
+        padding: 1rem;
+        margin: 1rem 2rem;
+        resize: none;
+        overflow-y: scroll;
+    }
+
+
+.socials {
+    width: 75%;
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    input{
+        width: 4rem;
+        height: 4rem;
+    }
+    label{
+        padding-left: 2rem;
+        font-size: 3rem;
+    }
+}
+
+.social-url-input {
+    width: 50rem;
+    height: 6rem;
+    font-size: 3rem;
+}
