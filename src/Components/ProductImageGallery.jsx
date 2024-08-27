@@ -3,12 +3,13 @@ import './ProductImageGallery.css'
 
 function ProductImageGallery ({getProduct, product}) {
     const {imageUrl} = product 
+    const [selectedImage, setSelectedImage] = useState(imageUrl[0])
     
     useEffect(() => {
-        getProduct()
-    }, [])
-
-    const [selectedImage, setSelectedImage] = useState(imageUrl[0])
+        // getProduct()
+        setSelectedImage(imageUrl[0])
+    }, [product])
+ 
     
     const handleThumbnailClick = (image) => {
         setSelectedImage(image)

@@ -92,14 +92,10 @@ function ProductsPage() {
                   key={eachProduct._id}
                   eachProduct={eachProduct}
                   user={user}
-                  editProductId={editProductId}
-                  handleDisplayEditForm={handleDisplayEditForm}
-                  handleCancelEdit={handleCancelEdit}
                   showWarning={showWarning}
                   displayWarning={displayWarning}
                   deleteProduct={deleteProduct}
                   idToDelete={idToDelete}
-                  getProducts={getProducts}
                   />
               );
             })}
