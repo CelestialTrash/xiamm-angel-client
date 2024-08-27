@@ -63,7 +63,7 @@ function ProductForm({setDisplayAddProductForm}) {
           required
           value={price}
           onChange={(event) => setPrice(event.target.value)}
-          type="number"
+          type="Number"
           placeholder='Price'
         />
         <h6> Product Image URL</h6>

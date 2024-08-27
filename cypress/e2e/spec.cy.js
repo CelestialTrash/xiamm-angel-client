@@ -111,23 +111,23 @@ describe('template spec', () => {
     cy.get('.menu-btn').click();
     cy.contains('Merch').click (); 
     cy.wait(1000);
-    cy.contains('Edit'); 
+    
     cy.contains('Add Product').click(); //creating new product
     cy.get('input[type="text"]').should('exist').clear().type("sandia");
     cy.get('input[type="number"]').should('exist').clear().type("9.99");
     cy.get('button.save-btn').click();
     cy.wait(200);
     cy.contains('sandia'); //checking if new product was created properly
-    cy.contains('9.99'); // checking if price change work properly
-    cy.get('.menu-btn').click();
-    cy.contains('Merch').click (); 
+    cy.contains('9.99');
     cy.get('button.edit-btn').last().click(); //editing the created product
     cy.wait(200);
     cy.get('input[type="number"]').should('exist').clear().type("99.99");
     cy.get('button.save-btn').click();
     cy.contains('sandia');
-    cy.contains('99.99'); //checking id changing price works well
-    cy.get('button.delete-btn').last().click();
+    cy.contains('99.99'); //checking changing price works well
+    cy.get('.menu-btn').click();
+    cy.contains('Merch').click (); 
+    cy.get('button.delete-btn').last().click(); //testing delete button
     cy.get('button.no-btn').click(); //testing warning flow
     cy.get('button.delete-btn').last().click();
     cy.get('button.yes-btn').click(); //deleting tested product. If test failed prior to this step the test product needs to be deleted manually
