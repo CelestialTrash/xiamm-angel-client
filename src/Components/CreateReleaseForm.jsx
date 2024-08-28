@@ -36,9 +36,7 @@ function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
         if(authToken) {
 
             axios.post(`${API_URL}/api/releases`, newRelease, { headers: { Authorization: `Bearer ${authToken}`} })
-                /* .then((response) => {
-                    console.log("Release posted!", response);
-                }) */
+                
                 .then(() => getReleases())
                 .then(() => cancelCreate())
                 .catch((error) => {
@@ -62,13 +60,13 @@ function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
             <form onSubmit={handlePostRelease}>
             <h1>Post a new release</h1>
                 <label htmlFor="title">Title</label>
-                <input onChange={(e) => setTitle(e.target.value)} type="text" name="title" id="title" value={title} />
+                <input onChange={(e) => setTitle(e.target.value)} type="text" name="title" className="title" value={title} />
                 <label htmlFor="date">Date of release</label>
-                <input onChange={(e) => setDate(e.target.value)} type="date" name="date" id="date" value={date}/>
+                <input onChange={(e) => setDate(e.target.value)} type="date" name="date" className="date" value={date}/>
                 <label htmlFor="producer">Producer</label>
-                <input onChange={(e) => setProducer(e.target.value)} type="text" name="producer" id="producer" value={producer}/>
+                <input onChange={(e) => setProducer(e.target.value)} type="text" name="producer" className="producer" value={producer}/>
                 <label htmlFor="link">Link to platform</label>
-                <input onChange={(e) => setLinkToPlatform(e.target.value)} type="text" name="linkToPlatform" id="linkToPlatform" value={linkToPlatform} />
+                <input onChange={(e) => setLinkToPlatform(e.target.value)} type="text" name="linkToPlatform" className="linkToPlatform" value={linkToPlatform} />
                 <label htmlFor="imageUrl">Image</label>
                 <div>{<UploadWidget onUpload={handleUpload} />}</div>
                 <img src={imageUrl} alt="" />
