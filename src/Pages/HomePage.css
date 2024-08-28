@@ -25,9 +25,11 @@
 .image-container {
   width: 100%;
   height: 100%;
-  
   padding:  40rem 0;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   
 }
 
@@ -36,6 +38,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+ 
 }
 .soundcloud-logo {
   width: 7rem;
@@ -58,17 +62,24 @@
 }
 
 .latest-release {
-    width: 100%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 95rem;
+  height: 105rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 8rem;
+  position: relative;
+  box-sizing: border-box;
 
     img {
-       width: 95rem;
+       width: 90rem;
     }
 
 
     
 }
+
+
+

@@ -6,27 +6,28 @@ import WarningRelease from "./WarningRelease";
 import { Link } from "react-router-dom";
 
 function ReleaseCard({
-    user, 
-    _id,
-    title, 
-    producer, 
-    imageUrl, 
-    displayWarning, 
-    releaseWarning, 
-    handleCancelEdit, 
-    deleteRelease, 
-    setReleaseWarning, 
-    idToDelete,
-    editReleaseId,
-    handleDisplayEditForm, 
-    getReleases,
-    date,
-    linkToPlatform
-
+  user,
+  _id,
+  title,
+  producer,
+  imageUrl,
+  displayWarning,
+  releaseWarning,
+  handleCancelEdit,
+  deleteRelease,
+  setReleaseWarning,
+  idToDelete,
+  editReleaseId,
+  handleDisplayEditForm,
+  getReleases,
+  date,
+  linkToPlatform,
 }) {
   return (
     <div className="card-info">
-     <Link target="_blank" to={linkToPlatform}><img src={imageUrl} alt={title} /> </Link> 
+      <Link target="_blank" to={linkToPlatform}>
+        <img src={imageUrl} alt={title} />{" "}
+      </Link>
       <h3>{title}</h3>
       <small>Produced by</small>
       <p>{producer}</p>
