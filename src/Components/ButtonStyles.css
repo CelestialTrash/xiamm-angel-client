@@ -28,6 +28,13 @@ button:hover {
     width: 30rem;
 }
 
+.clear-btn {
+    background-color: white;
+    border: 3px solid var(--color-call-to-action);
+    height: 8rem;
+    width: 50rem;
+}
+
 .no-btn {
     background-color: transparent;
     border: 3px solid var(--color-call-to-action);
