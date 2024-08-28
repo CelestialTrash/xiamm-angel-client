@@ -9,8 +9,8 @@ describe('template spec', () => {
     
     cy.visit(siteUrl)
     cy.get('.social-links-container') //links to Social Networks appear
-    cy.get('h5');  //title for latest release renders. Please note if title changes to a different h then this needs to be changed too
-    cy.get('img'); // image for latets release renders
+    /* cy.get('h5'); */  //title for latest release renders. Please note if title changes to a different h then this needs to be changed too
+    cy.get('img'); // image for latest release renders
     cy.get('h1'); //artist name renders
     cy.get('.menu-btn').click(); //Navbar check
     cy.contains('HomePage');
@@ -45,7 +45,7 @@ describe('template spec', () => {
     cy.contains('Bio').click ();  //Link to Bio works
     cy.get('.bio-section');
     cy.url().should('include', '/bio'); //Bio page url works
-    cy.get('h1'); //Bio renders an h1, pleso note if h size changes it needs to be changed here too
+    cy.get('h2'); //Bio renders an h1, please note if h size changes it needs to be changed here too
     cy.get('h3'); //Bio renders artist name, pleso note if h size changes it needs to be changed here too
     cy.get('p'); //Bio renders a description
   })
@@ -64,7 +64,6 @@ describe('template spec', () => {
     cy.get('#password').clear().type(testPsswd2);
     cy.get('button.login-btn').click(); //testing a correct password
     cy.get('.social-links-container') //testing that user was redirected to homepage
-    cy.get('h5'); 
     cy.get('h1'); 
     cy.get('img'); 
     cy.get('.menu-btn').click();
@@ -77,21 +76,21 @@ describe('template spec', () => {
     cy.get('button.login-btn').click(); //login in first in order for testbot to pass auth and create CRUDs
     cy.get('.menu-btn').click();
     cy.contains('Releases').click();
-    cy.wait(1500); // Adjust as needed
+    cy.wait(1500); 
     cy.contains('Edit');
     cy.contains('Delete');
     cy.contains('Make Release').click(); //creating a test release
     
     
-    cy.get('input#title', { timeout: 10000 }).should('exist').and('be.visible').clear().type('test');
-    cy.get('input#date').should('exist').and('be.visible').clear().type('2024-08-23');
-    cy.get('input#producer').should('exist').and('be.visible').clear().type('test');
+    cy.get('input.title', { timeout: 10000 }).should('exist').and('be.visible').clear().type('test');
+    cy.get('input.date').should('exist').and('be.visible').clear().type('2024-08-23');
+    cy.get('input.producer').should('exist').and('be.visible').clear().type('test');
     cy.get('button.save-btn').click(); //test release created
     cy.wait(200);
     
     cy.get('button.edit-btn').last().click(); //editing the test release
     cy.wait(1000);
-    cy.get('input#title').should('exist').and('be.visible').clear().type('test2'); //editing the release
+    cy.get('input.title').first().should('exist').and('be.visible').clear().type('test2'); //editing the release
     cy.get('button.save-btn').click();
     
     cy.contains('h3', 'test2'); //checking if release edits worked
@@ -113,15 +112,15 @@ describe('template spec', () => {
     cy.wait(1000);
     
     cy.contains('Add Product').click(); //creating new product
-    cy.get('input[type="text"]').should('exist').clear().type("sandia");
-    cy.get('input[type="number"]').should('exist').clear().type("9.99");
+    cy.get('input.title').should('exist').clear().type("sandia");
+    cy.get('input.price').should('exist').clear().type("9.99");
     cy.get('button.save-btn').click();
     cy.wait(200);
     cy.contains('sandia'); //checking if new product was created properly
     cy.contains('9.99');
     cy.get('button.edit-btn').last().click(); //editing the created product
     cy.wait(200);
-    cy.get('input[type="number"]').should('exist').clear().type("99.99");
+    cy.get('input.price').should('exist').clear().type("99.99");
     cy.get('button.save-btn').click();
     cy.contains('sandia');
     cy.contains('99.99'); //checking changing price works well

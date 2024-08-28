@@ -86,7 +86,7 @@ function EditProductForm({
           onChange={(e) => setNewTitle(e.target.value)}
           type="text"
           name="title"
-          id="title"
+          className="title"
           value={newTitle}
         />
         <label htmlFor="price">Price</label>
@@ -94,7 +94,7 @@ function EditProductForm({
           onChange={(e) => setNewPrice(e.target.value)}
           type="Number"
           name="price"
-          id="price"
+          className="price"
           value={newPrice}
         />
         <label htmlFor="size">Size</label>
@@ -102,7 +102,7 @@ function EditProductForm({
           onChange={(e) => setNewSize(e.target.value)}
           type="text"
           name="size"
-          id="size"
+          className="size"
           value={newSize}
         />
         <label htmlFor="size">Materials</label>
@@ -110,14 +110,14 @@ function EditProductForm({
           onChange={(e) => setNewMaterials(e.target.value)}
           type="text"
           name="materials"
-          id="materials"
+          className="materials"
           value={newMaterials}
         />
         <label htmlFor="description">Description</label>
         <textarea
           onChange={(e) => setNewDescription(e.target.value)}
           name="description"
-          id="description"
+          className="description"
           value={newDescription}
         />
         <label htmlFor="linkToPlatform">Link to platform</label>
@@ -126,7 +126,7 @@ function EditProductForm({
         onChange={(e) => setNewLinkToPlatform(e.target.value)}
         type="text"
         name="linkToPlatform"
-        id="linkToPlatform"
+        className="linkToPlatform"
         value={newLinkToPlatform}/>
 
         <label htmlFor="image">Product Image URL</label>

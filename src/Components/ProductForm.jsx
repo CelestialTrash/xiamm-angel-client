@@ -44,17 +44,18 @@ function ProductForm({setDisplayAddProductForm}) {
 
   const handleUpload = (e) => {
     
-    setImage((prevImages) => [...prevImages, e]); // Functional update
+    setImage((prevImages) => [...prevImages, e]);
    
   };
   return (
     <div className="create-product-layout">
       <form onSubmit={handleSubmit}>
         <h3> Create Product</h3>
-       {/*  <label> Product Title</label> */}
+       
         <input
           required
           placeholder="Product Title"
+          className="title"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           type="text"
@@ -63,6 +64,7 @@ function ProductForm({setDisplayAddProductForm}) {
         <input
           required
           value={price}
+          className="price"
           onChange={(event) => setPrice(event.target.value)}
           type="Number"
           placeholder='Price'
