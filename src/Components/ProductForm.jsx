@@ -1,5 +1,4 @@
 //CSS
-import "./ProductForm.css";
 import "./ButtonStyles.css";
 //AXIOS
 import axios from "axios";
