@@ -1,6 +1,5 @@
 //REACT
 import { useState, useEffect, useContext } from "react";
-import { useSearchParams } from "react-router-dom";
 //AXIOS
 import axios from "axios";
 //CONTEXT
@@ -24,7 +23,7 @@ function ProductsPage() {
   const [idToDelete, setIdToDelete] = useState(null);
   const [editProductId, setEditProductId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [displayedProducts, setDisplayedProducts] = useState(products);
+  const [displayedProducts, setDisplayedProducts] = useState([]);
   
 
   //Get Products
@@ -34,6 +33,7 @@ function ProductsPage() {
       .get(`${API_URL}/api/products`)
       .then((response) => {
         setProducts(response.data);
+        setDisplayedProducts(response.data);
         setIsLoading(false)
       })
       .catch((error) => console.log(error));
@@ -97,7 +97,7 @@ function ProductsPage() {
           ) }
           {displayAddProductForm && <ProductForm setDisplayAddProductForm={setDisplayAddProductForm}/>}
           <ul className="products-container">
-            {products.map((eachProduct) => {
+            {displayedProducts.map((eachProduct) => {
               return (
                 <ProductCard
                   key={eachProduct._id}

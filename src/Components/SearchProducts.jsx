@@ -1,26 +1,36 @@
 import { useState } from "react";
 
-function SearchProducts({products, setDisplayedProducts}) {
-    const [searchProducts, setSearchProducts] = useState("");
+function SearchProducts({ products, setDisplayedProducts }) {
+  const [searchProducts, setSearchProducts] = useState("");
 
-function handleSearch(event){
+  function handleSearch(event) {
     const query = event.target.value;
-        setSearchProducts(query);
-        console.log(`Search query updated to: ${query}`);
-    /* if (query === "") {
-      setDisplayedProducts([]);
-      return;
-    } */
-}
-return (
-  <>
+    setSearchProducts(query);
 
-    <input onChange={handleSearch} id="search-input" type="search" placeholder="Search robot" />
-    <span id="magni-icon">🔍</span>
-   
-    
-    <p>{searchProducts}</p>
-  </>
-);
+    if (query === "") { 
+      setDisplayedProducts(products);//reverting to full products when the query is empty
+      return;
+    } else {
+      //filtering products based on the query
+      const filteredProducts = products.filter((product) =>
+        product.title.toLowerCase().includes(query.toLowerCase())
+      );
+
+      setDisplayedProducts(filteredProducts);
+    }
+  }
+  return (
+    <>
+      <input
+        onChange={handleSearch}
+        id="search-input"
+        type="search"
+        placeholder="Search Product"
+      />
+      <span id="magni-icon">🔍</span>
+
+      <p>{searchProducts}</p>
+    </>
+  );
 }
 export default SearchProducts;
