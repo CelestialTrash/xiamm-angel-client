@@ -1,7 +1,9 @@
 //REACT
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AuthContext } from "./context/user.context";
+//Axios
+import axios from "axios";
 //COMPONENTS
 import HamburguerIcon from "./Components/HamburguerIcon";
 import Navbar from "./Components/Navbar";
@@ -18,6 +20,9 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import ProductsPage from "./Pages/ProductsPage";
 import ProductDetailsPage from "./Pages/ProductDetailsPage";
 import EditProfilePage from "./Pages/EditProfilePage";
+import Loader from "./Components/Loader";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   
@@ -45,6 +50,39 @@ function App() {
     }, 400);
   };
 
+  const [isLoading, setIsLoading] = useState(true)
+  const [sharedBio, setSharedBio] = useState({
+    displayName: "",
+    bio: "",
+    socials : {
+      spotify: "",
+      appleMusic: "",
+      soundcloud: "",
+      youtube: "",
+      instagram: "",
+      x: "",
+      tiktok: "",
+      facebook: ""
+    }
+  })
+
+  function getBio() {
+    setIsLoading(true)
+    axios.get(`${API_URL}/api/bio`)
+        .then((response) => {
+            setSharedBio(response.data[0]);
+            setIsLoading(false)
+        })
+        .catch((error) => {
+            console.log(error);
+            
+            console.error(error?.response.data.message);
+        });
+  }
+
+  useEffect(() => {
+    getBio()
+  }, [])
 
 
   return (
@@ -54,11 +92,11 @@ function App() {
         <Navbar isNavbarClosing={isNavbarClosing} closeNavbar={closeNavbar} />
       )}
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage bio={sharedBio} getBio={getBio}/>} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/bio" element={<Bio />} />
-        <Route path="/edit-profile" element={<EditProfilePage />} />
+        <Route path="/bio" element={<Bio bio={sharedBio} getBio={getBio} isLoading={isLoading}/>} />
+        <Route path="/edit-bio" element={<EditProfilePage bio={sharedBio} getBio={getBio} isLoading={isLoading}/>} />
         <Route path="/releases" element={<ReleasesPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:productId" element={<ProductDetailsPage />} />
