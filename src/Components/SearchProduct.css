@@ -1,0 +1,19 @@
+.search-input {
+    font-family: 'square_sans_serif';
+    margin: 1rem;
+    width: 45rem;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #27272B; 
+    border-radius: 0%;
+    margin-top: 4rem;
+
+
+    
+    
+
+}
+

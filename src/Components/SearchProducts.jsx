@@ -1,4 +1,7 @@
+//REACT
 import { useState } from "react";
+//CSS
+import './SearchProduct.css'
 
 function SearchProducts({ products, setDisplayedProducts }) {
   const [searchProducts, setSearchProducts] = useState("");
@@ -21,15 +24,15 @@ function SearchProducts({ products, setDisplayedProducts }) {
   }
   return (
     <>
-      <input
+      <input className="search-input"
         onChange={handleSearch}
         id="search-input"
         type="search"
         placeholder="Search Product"
       />
-      <span id="magni-icon">🔍</span>
+      {/* <span className="search-icon" id="magni-icon">🔍</span> */}
 
-      <p>{searchProducts}</p>
+     {/*  <p>{searchProducts}</p> */}
     </>
   );
 }
