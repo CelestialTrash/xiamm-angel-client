@@ -1,5 +1,6 @@
 //REACT
 import { useState, useEffect, useContext } from "react";
+import { useSearchParams } from "react-router-dom";
 //AXIOS
 import axios from "axios";
 //CONTEXT
@@ -7,6 +8,7 @@ import { AuthContext } from "../context/user.context";
 //COMPONENTS
 import ProductForm from "../Components/ProductForm";
 import ProductCard from "../Components/ProductCard";
+import SearchProducts from "../Components/SearchProducts";
 
 //CSS
 import "./ProductsPage.css";
@@ -22,6 +24,8 @@ function ProductsPage() {
   const [idToDelete, setIdToDelete] = useState(null);
   const [editProductId, setEditProductId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [displayedProducts, setDisplayedProducts] = useState(products);
+  
 
   //Get Products
   function getProducts() {
@@ -73,6 +77,13 @@ function ProductsPage() {
       {isLoading ? (
         <Loader />
       ) : (
+        <>
+        <div>
+        <SearchProducts
+                    products={products}
+                    setDisplayedProducts={setDisplayedProducts}
+                  />
+        </div>
         <div>
           {user && (
             <button
@@ -101,8 +112,10 @@ function ProductsPage() {
             })}
             </ul>
           </div>
+          </>
       )}                
     </section>
+    
   );
 }
 
