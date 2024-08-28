@@ -6,8 +6,14 @@ import './SearchProduct.css'
 function SearchProducts({ products, setDisplayedProducts }) {
   const [searchProducts, setSearchProducts] = useState("");
 
+    function trim(ditto){
+        return(
+        ditto.toLowerCase().split(' ').join('')
+        )
+    }
+
   function handleSearch(event) {
-    const query = event.target.value;
+    const query = trim(event.target.value);
     setSearchProducts(query);
 
     if (query === "") { 
@@ -16,7 +22,7 @@ function SearchProducts({ products, setDisplayedProducts }) {
     } else {
       //filtering products based on the query
       const filteredProducts = products.filter((product) =>
-        product.title.toLowerCase().includes(query.toLowerCase())
+        trim(product.title).includes(searchProducts)
       );
 
       setDisplayedProducts(filteredProducts);
@@ -30,9 +36,6 @@ function SearchProducts({ products, setDisplayedProducts }) {
         type="search"
         placeholder="Search Product"
       />
-      {/* <span className="search-icon" id="magni-icon">🔍</span> */}
-
-     {/*  <p>{searchProducts}</p> */}
     </>
   );
 }
