@@ -7,21 +7,14 @@
     justify-content: center;
     text-align: center;
     
-    
-    
-    
     a{
         text-decoration: none;
         color:#27272B ;
-        
-        
-        
     }
 
     img {
         width: 65rem;
         height: 65rem;
-       
     }
 }
 
@@ -33,24 +26,19 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    
-    
 }
 
 .product-card {
     padding: 10rem;
-    
     h2 {
         font-size: 4rem;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        
     }
 
     h3 {
-        font-size: 4rem;
-        
+        font-size: 4rem;       
     }
 }

@@ -6,10 +6,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 4rem;
-    top: 0;
-
-   
-    
+    top: 0;    
 }
 
 .bio-info{
@@ -54,8 +51,6 @@
 @media (min-width: 1024px) {
     .bio-container  {
       width: 60%;
-      height: 40%;
-      
-     
+      height: 40%;    
     }
 }

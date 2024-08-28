@@ -18,7 +18,7 @@ function AuthProviderWrapper (props) {
             headers: {Authorization: `Bearer ${authToken}`}
         })
         .then((response) => {
-            /* console.log(response.data) */;
+            
 
             setUser(response.data)
         })
