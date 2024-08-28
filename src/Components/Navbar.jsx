@@ -38,10 +38,20 @@ function Navbar({ closeNavbar, isNavbarClosing }) {
                 <Link to="/bio" onClick={closeNavbar}>
                     <h5 className="link-hover">Bio</h5>
                 </Link>
-               {user && <h5 onClick={() => {
-                    handleLogout()
-                    closeNavbar()
-                    }} >Log Out</h5>}
+                {user && (
+                    <div className="user-nav-tabs">
+                    <hr />
+
+                    <Link to="/edit-profile" onClick={closeNavbar}>
+                        <h5 className="link-hover">Edit Bio</h5>
+                    </Link>
+                    
+                    <h5 onClick={() => {
+                        handleLogout()
+                        closeNavbar()
+                    }}>Log Out</h5>
+                    </div>
+                )}
             </div>
         </div>
     );

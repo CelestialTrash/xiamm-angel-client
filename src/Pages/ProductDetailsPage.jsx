@@ -91,7 +91,7 @@ function ProductDetailsPage() {
               id={product._id}
               title={product.title}
               price={product.price}
-              image={product.image}
+              imageUrl={product.imageUrl}
               size={product.size}
               materials={product.materials}
               description={product.description}

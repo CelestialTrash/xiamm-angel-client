@@ -17,15 +17,17 @@ const API_URL = import.meta.env.VITE_API_URL;
 function ProductForm({setDisplayAddProductForm}) {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState();
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState([]);
   const navigate = useNavigate();
+  
   
 
   const handleSubmit = (e) => {
+    
     const newProduct = { title, price, imageUrl: image };
+    
     e.preventDefault();
     const storedToken = localStorage.getItem("Authorization");
-    /* console.log("STORED TOKEN BEFORE CREATING PRODUCT: ",storedToken); */
 
     axios
       .post(`${API_URL}/api/products`, newProduct, {
@@ -33,14 +35,16 @@ function ProductForm({setDisplayAddProductForm}) {
       })
       .then((response) => {
         const newProduct = response.data;
-
         navigate(`/products/${newProduct._id}`); 
+       
       })
       .catch((error) => console.log(error));
   };
 
   const handleUpload = (e) => {
-    setImage(e);
+    
+    setImage((prevImages) => [...prevImages, e]); // Functional update
+   
   };
   return (
     <div className="create-product-layout">
@@ -65,7 +69,7 @@ function ProductForm({setDisplayAddProductForm}) {
         <h6> Product Image URL</h6>
        
         <div>{<UploadWidget onUpload={handleUpload} />}</div>
-        <h6> {image.length >=3? "Your image is ready to upload":""}</h6>
+        <h6> {image.length >=1? "Your image is ready to upload":""}</h6>
         <button className="save-btn" type="submit"> Submit</button>
         <button className="cancel-btn" type="button" onClick={() => {
                 setDisplayAddProductForm(false);
