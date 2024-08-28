@@ -3,20 +3,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 //CSS
 import "./HomePage.css";
-
 //Axios
 import axios from "axios";
-
-//ASSETS
-
-import soundcloudLogo from "../assets/SocialMediaSVG/soundcloud-svgrepo-com.svg";
-import spotifyLogo from "../assets/SocialMediaSVG/spotify-logo-fill-svgrepo-com.svg";
-import instagramLogo from "../assets/SocialMediaSVG/instagram-svgrepo-com.svg";
-import youtubeLogo from "../assets/SocialMediaSVG/youtube-168-svgrepo-com.svg";
+//COMPONENTS
+import SocialLinks from "../Components/SocialLinks";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-function HomePage() {
+function HomePage({bio, getBio}) {
   const [latestRelease, setLatestRelease] = useState(null);
   useEffect(() => {
     axios
@@ -27,24 +21,14 @@ function HomePage() {
         }
       })
       .catch((error) => console.error("Error fetching latest release:", error));
+    getBio();
   }, []);
 
   return (
     <section className="home-page-section">
       <div className="social-links-section">
         <div className="social-links-container">
-          <img
-            src={soundcloudLogo}
-            className="soundcloud-logo"
-            alt="SoundCloud Logo"
-          />
-          <img src={spotifyLogo} className="spotify-logo" alt="Spotify Logo" />
-          <img
-            src={instagramLogo}
-            className="instagram-logo"
-            alt="Instagram Logo"
-          />
-          <img src={youtubeLogo} className="youtube-logo" alt="YouTube Logo" />
+          <SocialLinks bio={bio}/>
         </div>
       </div>
       <div className="image-container">
@@ -60,7 +44,7 @@ function HomePage() {
         )}
       </div>
       <div className="title-container">
-        <h1>Ditto Artist</h1>
+        <h1>{bio.displayName}</h1>
       </div>
     </section>
   );

@@ -42,7 +42,7 @@ function Navbar({ closeNavbar, isNavbarClosing }) {
                     <div className="user-nav-tabs">
                     <hr />
 
-                    <Link to="/edit-profile" onClick={closeNavbar}>
+                    <Link to="/edit-bio" onClick={closeNavbar}>
                         <h5 className="link-hover">Edit Bio</h5>
                     </Link>
                     

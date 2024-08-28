@@ -7,39 +7,11 @@ import Loader from '../Components/Loader';
 import { useNavigate } from 'react-router-dom';
 const API_URL = import.meta.env.VITE_API_URL;
 
-function EditProfilePage() {
-    const [isLoading, setIsLoading] = useState(true);
+function EditProfilePage({bio, getBio, isLoading}) {
     const authToken = localStorage.getItem("Authorization");
     const [errorMessage, setErrorMessage] = useState()
     const navigate = useNavigate()
-    const [newBio, setNewBio] = useState({
-        displayName: "",
-        bio: "",
-        socials: {
-            spotify: "",
-            appleMusic: "",
-            soundcloud: "",
-            youtube: "",
-            instagram: "",
-            x: "",
-            tiktok: "",
-            facebook: ""
-        }
-    })
-
-    function getBio() {
-        setIsLoading(true)
-        axios.get(`${API_URL}/api/bio`)
-            .then((response) => {
-                setNewBio(response.data[0]);
-                setIsLoading(false)
-            })
-            .catch((error) => {
-                console.log(error);
-                
-                console.error(error?.response.data.message);
-            });
-    }
+    const [newBio, setNewBio] = useState(bio)
 
     useEffect(() => {
         getBio()
