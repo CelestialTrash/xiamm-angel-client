@@ -8,7 +8,7 @@ import "./HomePage.css";
 import axios from "axios";
 
 //ASSETS
-
+import backgroundVideo from "../assets/BackgroundImg/mixkit-a-light-mist-continuously-flows-generating-a-soft-light-texture-50939-full-hd.mp4";
 import soundcloudLogo from "../assets/SocialMediaSVG/soundcloud-svgrepo-com.svg";
 import spotifyLogo from "../assets/SocialMediaSVG/spotify-logo-fill-svgrepo-com.svg";
 import instagramLogo from "../assets/SocialMediaSVG/instagram-svgrepo-com.svg";
@@ -31,6 +31,7 @@ function HomePage() {
 
   return (
     <section className="home-page-section">
+      <video autoPlay muted loop className="video-homepage" src={backgroundVideo}></video>
       <div className="social-links-section">
         <div className="social-links-container">
           <img
