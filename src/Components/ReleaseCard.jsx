@@ -25,9 +25,13 @@ function ReleaseCard({
 }) {
   return (
     <div className="card-info">
-      <Link target="_blank" to={linkToPlatform}>
-        <img src={imageUrl} alt={title} />{" "}
-      </Link>
+      {linkToPlatform ? (
+        <Link target="_blank" to={linkToPlatform}>
+          <img src={imageUrl} alt={title} />{" "}
+        </Link>
+      ) : (
+        <img src={imageUrl} alt={title} />
+      )}
       <h3>{title}</h3>
       <small>Produced by</small>
       <p>{producer}</p>
