@@ -8,6 +8,10 @@ import axios from "axios";
 //COMPONENTS
 import SocialLinks from "../Components/SocialLinks";
 
+//ASSETS
+import backgroundVideo from "../assets/BackgroundImg/mixkit-a-light-mist-continuously-flows-generating-a-soft-light-texture-50939-full-hd.mp4";
+
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 function HomePage({bio, getBio}) {
@@ -26,6 +30,7 @@ function HomePage({bio, getBio}) {
 
   return (
     <section className="home-page-section">
+      <video autoPlay muted loop className="video-homepage" src={backgroundVideo}></video>
       <div className="social-links-section">
         <div className="social-links-container">
           <SocialLinks bio={bio}/>
