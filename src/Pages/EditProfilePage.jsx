@@ -1,10 +1,18 @@
 import '../Components/FormStyles.css' 
 import './EditProfilePage.css' 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import CheckboxInput from '../Components/CheckboxInput'
+import axios from "axios";
+import Loader from '../Components/Loader';
+import { useNavigate } from 'react-router-dom';
+const API_URL = import.meta.env.VITE_API_URL;
 
 function EditProfilePage() {
-    const [bio, setBio] = useState({
+    const [isLoading, setIsLoading] = useState(true);
+    const authToken = localStorage.getItem("Authorization");
+    const [errorMessage, setErrorMessage] = useState()
+    const navigate = useNavigate()
+    const [newBio, setNewBio] = useState({
         displayName: "",
         bio: "",
         socials: {
@@ -19,9 +27,35 @@ function EditProfilePage() {
         }
     })
 
+    function getBio() {
+        setIsLoading(true)
+        axios.get(`${API_URL}/api/bio`)
+            .then((response) => {
+                setNewBio(response.data[0]);
+                setIsLoading(false)
+            })
+            .catch((error) => {
+                console.log(error);
+                
+                console.error(error?.response.data.message);
+            });
+    }
+
+    useEffect(() => {
+        getBio()
+    }, [])
+
+    const handleTextInputChange = (event) => {
+        const { id, value } = event.target
+        setNewBio((prev) => ({
+            ...prev,
+            [id] : value,
+        }))
+    }
+
     const handleCheckboxChange = (event) => {
         const { id, value } = event.target;
-        setBio((prev) => ({
+        setNewBio((prev) => ({
             ...prev,
             socials: {
                 ...prev.socials,
@@ -30,18 +64,42 @@ function EditProfilePage() {
         }));
     };
 
-    const handleBioSubmit = () => {
+    const handleEditBio = (event) => {
+        event.preventDefault();
+        
+        const updatedBio = {
+            displayName: newBio.displayName,
+            bio: newBio.bio,
+            socials: newBio.socials
+        }
 
+        if(authToken) {
+            axios.put(`${API_URL}/api/bio`, updatedBio, { headers: { Authorization: `Bearer ${authToken}`} })
+                .then(() => getBio())
+                .then(() => navigate("/bio"))
+                .catch((error) => {
+                    console.error(error);
+                    setErrorMessage(error.response.data.message);
+            
+                    setTimeout(() => {
+                        setErrorMessage(null);
+                    }, 10000);
+                });
+        }
     }
+
+
 
     return (
         <section className="form-section">
-            <form className="edit-profile-form">
+            { isLoading ? <Loader /> : 
+            <form className="edit-profile-form" onSubmit={handleEditBio}>
+                <h2>Edit your bio</h2>
                 <label htmlFor="displayName">Artist Name</label>
-                <input type="text" id="displayName" name="displayName"/>
+                <input onChange={handleTextInputChange} type="text" id="displayName" name="displayName" value={newBio.displayName}/>
                 
                 <label htmlFor="bio">Bio</label>
-                <textarea name="bio" id="bio" />
+                <textarea onChange={handleTextInputChange} name="bio" id="bio" value={newBio.bio}/>
                 
                 <div className="socials">
                 <label htmlFor="socials">Social Links</label>
@@ -49,55 +107,57 @@ function EditProfilePage() {
                     <CheckboxInput 
                         id="spotify" 
                         name="Spotify" 
-                        value={bio.socials.spotify} 
+                        value={newBio.socials.spotify} 
                         onChange={handleCheckboxChange}
-                    />
+                        />
                     <CheckboxInput 
                         id="appleMusic" 
                         name="Apple Music" 
-                        value={bio.socials.appleMusic} 
+                        value={newBio.socials.appleMusic} 
                         onChange={handleCheckboxChange}
-                    />
+                        />
                     <CheckboxInput 
                         id="soundcloud" 
                         name="SoundCloud" 
-                        value={bio.socials.soundcloud} 
+                        value={newBio.socials.soundcloud} 
                         onChange={handleCheckboxChange}
-                    />
+                        />
                     <CheckboxInput 
                         id="youtube" 
                         name="Youtube" 
-                        value={bio.socials.youtube} 
+                        value={newBio.socials.youtube} 
                         onChange={handleCheckboxChange}
-                    />
+                        />
                     <CheckboxInput 
                         id="instagram" 
                         name="Instagram" 
-                        value={bio.socials.instagram} 
+                        value={newBio.socials.instagram} 
                         onChange={handleCheckboxChange}
-                    />
+                        />
                     <CheckboxInput 
                         id="x" 
                         name="X" 
-                        value={bio.socials.x} 
+                        value={newBio.socials.x} 
                         onChange={handleCheckboxChange}
-                    />
+                        />
                     <CheckboxInput 
                         id="tiktok" 
                         name="TikTok" 
-                        value={bio.socials.tiktok} 
+                        value={newBio.socials.tiktok} 
                         onChange={handleCheckboxChange}
-                    />
+                        />
                     <CheckboxInput 
                         id="facebook" 
                         name="Facebook" 
-                        value={bio.socials.facebook} 
+                        value={newBio.socials.facebook} 
                         onChange={handleCheckboxChange}
-                    />
+                        />
                 </div>
                 </div>
-                <button className="save-btn">Save</button>
+                <button className="save-btn" type="submit">Save</button>
+                <p className="error">{errorMessage}</p>
             </form>
+            }
         </section>
     )
 }
