@@ -1,5 +1,6 @@
 //REACT
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 //CSS
 import './HomePage.css'
 
@@ -46,8 +47,7 @@ function HomePage() {
         <div className="image-container">
                 {latestRelease && (
                     <div className="latest-release">
-                        <img src={latestRelease.imageUrl} alt={latestRelease.title} />
-                         <h5>{latestRelease.title}</h5> 
+                       <Link target="_blank" to={latestRelease.linkToPlatform}> <img src={latestRelease.imageUrl} alt={latestRelease.title} /></Link> 
                     
                     </div>
                 )}

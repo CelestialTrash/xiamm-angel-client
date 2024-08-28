@@ -3,6 +3,7 @@ import "./ReleaseCard.css";
 //COMPONENTS
 import EditReleaseForm from "./EditReleaseForm";
 import WarningRelease from "./WarningRelease";
+import { Link } from "react-router-dom";
 
 function ReleaseCard({
     user, 
@@ -19,11 +20,13 @@ function ReleaseCard({
     editReleaseId,
     handleDisplayEditForm, 
     getReleases,
-    date 
+    date,
+    linkToPlatform
+
 }) {
   return (
     <div className="card-info">
-      <img src={imageUrl} alt={title} />
+     <Link target="_blank" to={linkToPlatform}><img src={imageUrl} alt={title} /> </Link> 
       <h3>{title}</h3>
       <small>Produced by</small>
       <p>{producer}</p>
@@ -42,6 +45,7 @@ function ReleaseCard({
               title={title}
               producer={producer}
               date={date}
+              linkToPlatform={linkToPlatform}
               imageUrl={imageUrl}
               cancelEdit={handleCancelEdit}
               getReleases={getReleases}

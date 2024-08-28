@@ -19,10 +19,13 @@ function EditProductForm({
   materials,
   cancelEdit,
   getProduct,
+  linkToPlatform,
+  
 }) {
   const [newTitle, setNewTitle] = useState(title);
   const [newPrice, setNewPrice] = useState(price);
   const [newImages, setNewImages] = useState(imageUrl);
+  const [newLinkToPlatform, setNewLinkToPlatform] = useState(linkToPlatform)
   const [newDescription, setNewDescription] = useState(description);
   const [newSize, setNewSize] = useState(size);
   const [newMaterials, setNewMaterials] = useState(materials);
@@ -36,6 +39,7 @@ function EditProductForm({
     const updatedProduct = {
       title: newTitle,
       price: newPrice,
+      linkToPlatform: newLinkToPlatform,
       imageUrl: newImages,
       description: newDescription,
       size: newSize,
@@ -116,6 +120,15 @@ function EditProductForm({
           id="description"
           value={newDescription}
         />
+        <label htmlFor="linkToPlatform">Link to platform</label>
+        
+        <input 
+        onChange={(e) => setNewLinkToPlatform(e.target.value)}
+        type="text"
+        name="linkToPlatform"
+        id="linkToPlatform"
+        value={newLinkToPlatform}/>
+
         <label htmlFor="image">Product Image URL</label>
         <button type="button" onClick={handleClearImages} className="clear-btn">
           Clear All Images

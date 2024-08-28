@@ -98,7 +98,7 @@ function ReleasesPage() {
           )}
           <ul id="card-container">
             {releases &&
-              releases.map(({ _id, title, producer, imageUrl, date }) => {
+              releases.map(({ _id, title, producer, imageUrl, date, linkToPlatform }) => {
                 return (
                   <li className="card" key={_id}>
                     <ReleaseCard
@@ -108,6 +108,7 @@ function ReleasesPage() {
                       producer={producer}
                       imageUrl={imageUrl}
                       date = {date}
+                      linkToPlatform = {linkToPlatform}
                       handleDisplayEditForm={handleDisplayEditForm}
                       displayWarning={displayWarning}
                       handleCancelEdit={handleCancelEdit}

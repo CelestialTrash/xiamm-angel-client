@@ -18,13 +18,14 @@ function ProductForm({setDisplayAddProductForm}) {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState();
   const [image, setImage] = useState([]);
+  const [linkToPlatform, setLinkToPlatform] = useState()
   const navigate = useNavigate();
   
   
 
   const handleSubmit = (e) => {
     
-    const newProduct = { title, price, imageUrl: image };
+    const newProduct = { title, price, imageUrl: image , linkToPlatform};
     
     e.preventDefault();
     const storedToken = localStorage.getItem("Authorization");
@@ -66,6 +67,11 @@ function ProductForm({setDisplayAddProductForm}) {
           type="Number"
           placeholder='Price'
         />
+        <label htmlFor="linkToPlatform"></label>
+        <input type="text" 
+        value={linkToPlatform}
+        placeholder="linkToPlatform"
+        onChange={(event) => setLinkToPlatform(event.target.value)}/>
         <h6> Product Image URL</h6>
        
         <div>{<UploadWidget onUpload={handleUpload} />}</div>

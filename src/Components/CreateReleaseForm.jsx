@@ -14,7 +14,9 @@ function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
     const [date, setDate] = useState("")
     const [producer, setProducer] = useState("")
     const [imageUrl, setImageUrl] = useState("")
+    const [linkToPlatform , setLinkToPlatform] = useState("")
     const [errorMessage, setErrorMessage] = useState()
+    
 
     const authToken = localStorage.getItem("Authorization")
 
@@ -25,7 +27,9 @@ function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
             title,
             date,
             producer,
-            imageUrl
+            imageUrl,
+            linkToPlatform
+
         }
         
 
@@ -63,6 +67,8 @@ function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
                 <input onChange={(e) => setDate(e.target.value)} type="date" name="date" id="date" value={date}/>
                 <label htmlFor="producer">Producer</label>
                 <input onChange={(e) => setProducer(e.target.value)} type="text" name="producer" id="producer" value={producer}/>
+                <label htmlFor="link">Link to platform</label>
+                <input onChange={(e) => setLinkToPlatform(e.target.value)} type="text" name="linkToPlatform" id="linkToPlatform" value={linkToPlatform} />
                 <label htmlFor="imageUrl">Image</label>
                 <div>{<UploadWidget onUpload={handleUpload} />}</div>
                 <img src={imageUrl} alt="" />

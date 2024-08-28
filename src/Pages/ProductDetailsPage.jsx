@@ -10,6 +10,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/user.context";
 import ProductImageGallery from "../Components/ProductImageGallery";
 
+
 const API_URL = import.meta.env.VITE_API_URL;
 const storedToken = localStorage.getItem("Authorization");
 
@@ -18,6 +19,7 @@ function ProductDetailsPage() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [images, setImages] = useState([]);
+  const [linkToPlatform,setLinkToPlatform] = useState("");
   const [description, setDescription] = useState("")
   const [size, setSize] = useState("")
   const [materials, setMaterials] = useState("")
@@ -39,6 +41,7 @@ function ProductDetailsPage() {
     setTitle(product.title);
     setPrice(product.price);
     setImages([product.imageUrl]);
+    setLinkToPlatform(product.linkToPlatform)
     setDescription(product.description);
     setSize(product.size);
     setMaterials([product.materials]);
@@ -76,7 +79,7 @@ function ProductDetailsPage() {
         <h4>Description</h4>
         <p>{description}</p>
       </div>
-      <button className="purchase-btn">Purchase</button>
+      <Link target="_blank" to={linkToPlatform} ><button className="purchase-btn">Purchase</button> </Link>
       {user ? (
         <>
           <button
@@ -91,6 +94,7 @@ function ProductDetailsPage() {
               id={product._id}
               title={product.title}
               price={product.price}
+              linkToPlatform ={product.linkToPlatform}
               imageUrl={product.imageUrl}
               size={product.size}
               materials={product.materials}

@@ -9,12 +9,13 @@ import UploadWidget from "./UploadWidget"
 
 const API_URL = import.meta.env.VITE_API_URL
 
-function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getReleases}) {
+function EditReleaseForm({id, title, producer, imageUrl, date, linkToPlatform, cancelEdit, getReleases}) {
     const [newTitle, setNewTitle] = useState(title)
     const [newDate, setNewDate] = useState(date)
     const [newProducer, setNewProducer] = useState(producer)
     const [newImageUrl, setNewImageUrl] = useState(imageUrl)
     const [errorMessage, setErrorMessage] = useState()
+    const [newLinkToPlatform , setNewLinkToPlatform] = useState(linkToPlatform)
 
     const authToken = localStorage.getItem("Authorization")
 
@@ -26,6 +27,7 @@ function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getRe
             date: newDate,
             producer: newProducer,
             imageUrl: newImageUrl,
+            linkToPlatform: newLinkToPlatform,
         }
 
         if(authToken) {
@@ -64,6 +66,8 @@ function EditReleaseForm({id, title, producer, imageUrl, date, cancelEdit, getRe
                 <input onChange={(e) => setNewDate(e.target.value)} type="date" name="date" id="date" value={newDate} />
                 <label htmlFor="producer">Producer</label>
                 <input onChange={(e) => setNewProducer(e.target.value)} type="text" name="producer" id="producer" value={newProducer} />
+                <label htmlFor="link">Link to platform</label>
+                <input onChange={(e) => setNewLinkToPlatform(e.target.value)} type="text" name="linkToPlatform" id="linkToPlatform" value={newLinkToPlatform} />
                 <label htmlFor="imageUrl">Image</label>
                 <div>{<UploadWidget onUpload={handleUpload} />}
                 <img src={imageUrl} alt="" />
