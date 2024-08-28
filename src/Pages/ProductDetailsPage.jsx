@@ -79,7 +79,11 @@ function ProductDetailsPage() {
         <h4>Description</h4>
         <p>{description}</p>
       </div>
+      {linkToPlatform ?(
       <Link target="_blank" to={linkToPlatform} ><button className="purchase-btn">Purchase</button> </Link>
+      ): (
+       "")
+      }
       {user ? (
         <>
           <button
