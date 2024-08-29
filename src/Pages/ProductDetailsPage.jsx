@@ -12,7 +12,6 @@ import ProductImageGallery from "../Components/ProductImageGallery";
 
 
 const API_URL = import.meta.env.VITE_API_URL;
-const storedToken = localStorage.getItem("Authorization");
 
 function ProductDetailsPage({placeholderImg}) {
   const [product, setProduct] = useState("");
@@ -66,6 +65,11 @@ function ProductDetailsPage({placeholderImg}) {
   
   return (
     <section className="product-details-container">
+      <div className="return-container">
+      <Link to="/products">
+        <button className="return-btn">Return to merch</button>
+      </Link>
+      </div>
       { product && <ProductImageGallery placeholderImg={placeholderImg} getProduct={getProduct} product={product}/>}
       <div className="product-details-info">
         <h2>{title}</h2>
@@ -111,9 +115,7 @@ function ProductDetailsPage({placeholderImg}) {
       ) : (
         <div></div>)
       }
-      <Link to="/products">
-        <button className="cancel-btn">Return</button>
-      </Link>
+
     </section>
   );
 }
