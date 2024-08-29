@@ -8,6 +8,7 @@
 
 .image-viewer {
     background-image: url("../assets/NA-image.png");
+    object-fit: cover;
     width: 80rem;
     height: 80rem;
 }
