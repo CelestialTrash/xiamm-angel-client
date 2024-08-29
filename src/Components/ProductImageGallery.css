@@ -7,8 +7,6 @@
 }
 
 .image-viewer {
-    background-image: url("../assets/NA-image.png");
-    object-fit: cover;
     width: 80rem;
     height: 80rem;
 }
@@ -17,7 +15,7 @@
     width: 80rem;
     height: 80rem;
     overflow: hidden;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .thumbnails {

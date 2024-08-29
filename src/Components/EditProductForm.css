@@ -8,9 +8,25 @@
     img {
       width: 50rem;
       height: 50rem;
-     margin: 7rem 0rem;
+      margin: 7rem 0rem;
       
     }
+}
+
+.imported-image-container{
+  width: 100%;
+  height: 64rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  overflow-y: scroll;
+  img {
+    width: 40%;
+    height: 40%;
+    margin: 0;
+  }
 }
 
 .clear-message{

@@ -14,7 +14,7 @@ import ProductImageGallery from "../Components/ProductImageGallery";
 const API_URL = import.meta.env.VITE_API_URL;
 const storedToken = localStorage.getItem("Authorization");
 
-function ProductDetailsPage() {
+function ProductDetailsPage({placeholderImg}) {
   const [product, setProduct] = useState("");
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
@@ -66,7 +66,7 @@ function ProductDetailsPage() {
   
   return (
     <section className="product-details-container">
-      { product && <ProductImageGallery getProduct={getProduct} product={product}/>}
+      { product && <ProductImageGallery placeholderImg={placeholderImg} getProduct={getProduct} product={product}/>}
       <div className="product-details-info">
         <h2>{title}</h2>
         <div className="product-specs">
@@ -104,6 +104,7 @@ function ProductDetailsPage() {
               materials={product.materials}
               description={product.description}
               cancelEdit={handleCancelEdit}
+              placeholderImg={placeholderImg}
             />
           )}
         </>

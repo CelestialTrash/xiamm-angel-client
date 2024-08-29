@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import './ProductImageGallery.css'
 
-function ProductImageGallery ({getProduct, product}) {
+function ProductImageGallery ({getProduct, product, placeholderImg}) {
     const {imageUrl} = product 
     const [selectedImage, setSelectedImage] = useState(imageUrl[0])
     
@@ -18,7 +18,9 @@ function ProductImageGallery ({getProduct, product}) {
     return(
         <div className="image-gallery">
             <div className="image-viewer">
-                <img className="main-image" src={selectedImage} alt="" />
+                <img className="main-image" 
+                    src={selectedImage ? selectedImage : placeholderImg} 
+                    alt="" />
             </div>
             <div className="thumbnails">
                 {imageUrl.map((image, index) => {
