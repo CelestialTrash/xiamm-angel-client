@@ -60,17 +60,19 @@ function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
             <form onSubmit={handlePostRelease}>
             <h1>Post a new release</h1>
                 <label htmlFor="title">Title</label>
-                <input onChange={(e) => setTitle(e.target.value)} type="text" name="title" className="title" value={title} />
+                <input onChange={(e) => setTitle(e.target.value)} required type="text" name="title" className="title" value={title} />
                 <label htmlFor="date">Date of release</label>
                 <input onChange={(e) => setDate(e.target.value)} type="date" name="date" className="date" value={date}/>
                 <label htmlFor="producer">Producer</label>
-                <input onChange={(e) => setProducer(e.target.value)} type="text" name="producer" className="producer" value={producer}/>
+                <input onChange={(e) => setProducer(e.target.value)} required type="text" name="producer" className="producer" value={producer}/>
                 <label htmlFor="link">Link to platform</label>
                 <input onChange={(e) => setLinkToPlatform(e.target.value)} type="text" name="linkToPlatform" className="linkToPlatform" value={linkToPlatform} />
                 <label htmlFor="imageUrl">Image</label>
                 <div>{<UploadWidget onUpload={handleUpload} />}</div>
+                { imageUrl?(
                 <img src={imageUrl} alt="" />
-
+                ):("")
+                }
                 <button className="save-btn" type="submit">Post</button>
                 <button className="cancel-btn" type="button" onClick={onClick}>Cancel</button>
                 <p className="error">{errorMessage}</p>

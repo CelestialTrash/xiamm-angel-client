@@ -58,11 +58,11 @@ function EditReleaseForm({id, title, producer, imageUrl, date, linkToPlatform, c
             <form id="edit-form" onSubmit={handleEditRelease}>
             <h1>Edit release</h1>
                 <label htmlFor="title">Title</label>
-                <input onChange={(e) => setNewTitle(e.target.value)} type="text" name="title" className="title" value={newTitle} />
+                <input onChange={(e) => setNewTitle(e.target.value)} required type="text" name="title" className="title" value={newTitle} />
                 <label htmlFor="date">Date of release</label>
                 <input onChange={(e) => setNewDate(e.target.value)} type="date" name="date" className="date" value={newDate} />
                 <label htmlFor="producer">Producer</label>
-                <input onChange={(e) => setNewProducer(e.target.value)} type="text" name="producer" className="producer" value={newProducer} />
+                <input onChange={(e) => setNewProducer(e.target.value)} required type="text" name="producer" className="producer" value={newProducer} />
                 <label htmlFor="link">Link to platform</label>
                 <input onChange={(e) => setNewLinkToPlatform(e.target.value)} type="text" name="linkToPlatform" className="linkToPlatform" value={newLinkToPlatform} />
                 <label htmlFor="imageUrl">Image</label>
