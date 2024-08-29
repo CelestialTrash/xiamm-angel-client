@@ -1,7 +1,7 @@
 import '../Components/FormStyles.css' 
 import './EditProfilePage.css' 
 import { useState, useEffect } from 'react'
-import CheckboxInput from '../Components/CheckboxInput'
+import SocialsInput from '../Components/SocialsInput'
 import axios from "axios";
 import Loader from '../Components/Loader';
 import { useNavigate } from 'react-router-dom';
@@ -75,50 +75,50 @@ function EditProfilePage({bio, getBio, isLoading}) {
                 
                 <div className="socials">
                 <label htmlFor="socials">Social Links</label>
-                <div className="checkboxes">
-                    <CheckboxInput 
+                <div className="social-inputs">
+                    <SocialsInput 
                         id="spotify" 
                         name="Spotify" 
                         value={newBio.socials.spotify} 
                         onChange={handleCheckboxChange}
                         />
-                    <CheckboxInput 
+                    <SocialsInput 
                         id="appleMusic" 
                         name="Apple Music" 
                         value={newBio.socials.appleMusic} 
                         onChange={handleCheckboxChange}
                         />
-                    <CheckboxInput 
+                    <SocialsInput 
                         id="soundcloud" 
                         name="SoundCloud" 
                         value={newBio.socials.soundcloud} 
                         onChange={handleCheckboxChange}
                         />
-                    <CheckboxInput 
+                    <SocialsInput 
                         id="youtube" 
                         name="Youtube" 
                         value={newBio.socials.youtube} 
                         onChange={handleCheckboxChange}
                         />
-                    <CheckboxInput 
+                    <SocialsInput 
                         id="instagram" 
                         name="Instagram" 
                         value={newBio.socials.instagram} 
                         onChange={handleCheckboxChange}
                         />
-                    <CheckboxInput 
+                    <SocialsInput 
                         id="x" 
                         name="X" 
                         value={newBio.socials.x} 
                         onChange={handleCheckboxChange}
                         />
-                    <CheckboxInput 
+                    <SocialsInput 
                         id="tiktok" 
                         name="TikTok" 
                         value={newBio.socials.tiktok} 
                         onChange={handleCheckboxChange}
                         />
-                    <CheckboxInput 
+                    <SocialsInput 
                         id="facebook" 
                         name="Facebook" 
                         value={newBio.socials.facebook} 

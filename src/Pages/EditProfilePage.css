@@ -1,7 +1,7 @@
 .edit-profile-form textarea {
         width: 95%;
         height: 45rem;
-        padding: 1rem;
+        padding: 1rem 2rem;
         margin: 1rem 2rem;
         resize: none;
         overflow-y: scroll;
@@ -12,11 +12,15 @@
     width: 75%;
 }
 
-.checkboxes {
+.social-inputs {
     display: flex;
     flex-direction: column;
     padding: 2rem;
     gap: 1rem;
+    input {
+        width: 100%;
+        font-size: 4em;
+    }
 }
 
 .checkbox{

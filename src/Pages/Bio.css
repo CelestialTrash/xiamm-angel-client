@@ -35,6 +35,10 @@
     gap: 4rem;
 }
 
+.bio-text{
+    white-space: pre-wrap ;
+}
+
 .socials-container {
     margin: 5rem 0;
     width: 80%;

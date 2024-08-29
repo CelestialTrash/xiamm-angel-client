@@ -20,7 +20,7 @@ function Bio({bio, getBio, isLoading}) {
           <h2>{bio.displayName}</h2>
           <h3>BIO</h3>
           <div className="bio-container">
-            <p>{bio.bio}</p>
+            <p className="bio-text">{bio.bio}</p>
           </div>
           <div className="socials-container">
             <SocialLinks bio={bio} />
