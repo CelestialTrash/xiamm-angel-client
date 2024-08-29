@@ -46,7 +46,7 @@ function Navbar({ closeNavbar, isNavbarClosing }) {
                         <h5 className="link-hover">Edit Bio</h5>
                     </Link>
                     
-                    <h5 onClick={() => {
+                    <h5 className="log-out" onClick={() => {
                         handleLogout()
                         closeNavbar()
                     }}>Log Out</h5>
