@@ -24,7 +24,7 @@ function HamburguerIcon({ toggleNavbar, resetIcon }) {
 
   return (
     <section className="menu-section">
-      <Link to="/">
+      <Link to="/" onClick={handleClick}>
         <img src={appLogo} alt="app-logo" />
       </Link>
       <div className={`menu-btn ${isActive ? 'active' : ''}`} onClick={handleClick}>
