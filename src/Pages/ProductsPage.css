@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: baseline;
     
     a{
         text-decoration: none;
@@ -16,27 +16,27 @@
         width: 65rem;
         height: 65rem;
         object-fit: cover;
+        object-position: center;
     }
 }
 
 .products-container {
-    width: 100%;
+    
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 10rem;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: baseline;
+    
     justify-content: center;
 }
 
 .product-card {
-    padding: 10rem 10rem 2rem;
+    padding: 5rem 0rem 2rem;
     h2 {
         font-size: 4rem;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
     }
 
     h3 {

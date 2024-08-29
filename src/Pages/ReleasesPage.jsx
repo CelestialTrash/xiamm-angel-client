@@ -80,12 +80,14 @@ function ReleasesPage() {
         <Loader />
       ) : (
         <section id="releases-page">
+          <h2>Releases</h2>
           {user ? (
             <div id="release-form-container">
               <button className="add-btn" onClick={handleDisplayCreateForm}>
                 Make Release
               </button>
               {displayForm && (
+                
                 <CreateReleaseForm
                   onClick={handleDisplayCreateForm}
                   getReleases={getReleases}
@@ -97,6 +99,7 @@ function ReleasesPage() {
             <div></div>
           )}
           <ul id="card-container">
+            
             {releases &&
               releases.map(({ _id, title, producer, imageUrl, date, linkToPlatform }) => {
                 return (

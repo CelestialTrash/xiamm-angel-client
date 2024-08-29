@@ -95,6 +95,7 @@ function ProductsPage() {
               Add Product
             </button>
           ) }
+          </div>
           {displayAddProductForm && <ProductForm setDisplayAddProductForm={setDisplayAddProductForm}/>}
           <ul className="products-container">
             {displayedProducts.map((eachProduct) => {
@@ -111,7 +112,7 @@ function ProductsPage() {
               );
             })}
             </ul>
-          </div>
+          
           </>
       )}                
     </section>
