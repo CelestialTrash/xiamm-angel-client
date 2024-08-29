@@ -1,3 +1,6 @@
 .product-relative{
     position: relative;
 }
+.product-card-alignment{
+    width: 65rem;
+}

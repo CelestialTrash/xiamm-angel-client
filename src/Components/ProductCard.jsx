@@ -11,7 +11,7 @@ const ProductCard = ({ eachProduct, user, showWarning, displayWarning, deletePro
     <div className="product-relative">
       <Link to={`/products/${eachProduct._id}`}>
         <li className="product-card">
-          <div>
+          <div className="product-card-alignment">
             <img
               src={eachProduct.imageUrl[0]}
               alt={eachProduct.title}
