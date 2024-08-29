@@ -42,9 +42,16 @@ button:hover {
     width: 30rem;
 }
 
-.add-btn,
-.return-btn {
+.add-btn {
     width: 70rem;
+    height: 10rem;
+    background-color: var(--color-call-to-action);
+    font-size: 4rem;
+    margin: 4rem 5rem;
+}
+
+.return-btn {
+    width: 55rem;
     height: 10rem;
     background-color: var(--color-call-to-action);
     font-size: 4rem;
