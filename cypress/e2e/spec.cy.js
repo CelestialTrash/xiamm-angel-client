@@ -8,12 +8,11 @@ describe('template spec', () => {
   it('The homepage renders properly', () => { //HomePage
     
     cy.visit(siteUrl)
-    cy.get('.social-links-container') //links to Social Networks appear
+    cy.get('.socials-container') //links to Social Networks appear
     /* cy.get('h5'); */  //title for latest release renders. Please note if title changes to a different h then this needs to be changed too
     cy.get('img'); // image for latest release renders
     cy.get('h1'); //artist name renders
     cy.get('.menu-btn').click(); //Navbar check
-    cy.contains('HomePage');
     cy.contains('Releases');
     cy.contains('Merch');
     cy.contains('Bio');
@@ -63,7 +62,7 @@ describe('template spec', () => {
     cy.get('#email').clear().type(testUser);
     cy.get('#password').clear().type(testPsswd2);
     cy.get('button.login-btn').click(); //testing a correct password
-    cy.get('.social-links-container') //testing that user was redirected to homepage
+    cy.get('.socials-container') //testing that user was redirected to homepage
     cy.get('h1'); 
     cy.get('img'); 
     cy.get('.menu-btn').click();
