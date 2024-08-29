@@ -17,8 +17,10 @@ function Bio({bio, getBio, isLoading}) {
     <section className="bio-section">
       {isLoading ? <Loader /> : 
         <div className="bio-info">
+          <div className="bio-title-container">
           <h2>{bio.displayName}</h2>
-          <h3>BIO</h3>
+          <h3 cl>BIO</h3>
+          </div>
           <div className="bio-container">
             <p className="bio-text">{bio.bio}</p>
           </div>
