@@ -11,8 +11,7 @@
 }
 
 .card-info{
-    width: 60rem;
-
+    width: 70rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,4 +61,7 @@
     padding-top: 2rem;
     gap: 6rem;   
     align-items: baseline;
+}
+.edit-release{
+    width: 100%;
 }

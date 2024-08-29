@@ -37,6 +37,7 @@ function ReleaseCard({
       <p>{producer}</p>
 
       {user ? (
+        <>
         <div className="card-btn-container">
           <button
             className="edit-btn"
@@ -44,6 +45,19 @@ function ReleaseCard({
           >
             Edit
           </button>
+          
+          <button className="delete-btn" onClick={() => displayWarning(_id)}>
+            Delete
+          </button>
+          {releaseWarning && idToDelete === _id && (
+            <WarningRelease
+              deleteRelease={deleteRelease}
+              setReleaseWarning={setReleaseWarning}
+              idToDelete={_id}
+            />
+          )}
+          </div>
+          <div className="edit-release">
           {editReleaseId === _id && (
             <EditReleaseForm
               id={_id}
@@ -56,17 +70,8 @@ function ReleaseCard({
               getReleases={getReleases}
             />
           )}
-          <button className="delete-btn" onClick={() => displayWarning(_id)}>
-            Delete
-          </button>
-          {releaseWarning && idToDelete === _id && (
-            <WarningRelease
-              deleteRelease={deleteRelease}
-              setReleaseWarning={setReleaseWarning}
-              idToDelete={_id}
-            />
-          )}
         </div>
+        </>
       ) : (
         <div></div>
       )}
