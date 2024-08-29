@@ -3,18 +3,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: baseline;
+    text-align: baseline;
     flex-wrap: wrap;
 }
 
 
 #card-container {
-    width: 100%;
    gap: 20rem;
    display: flex;
+   align-items: baseline;
    justify-content: center;
-   align-items: center;
    flex-wrap: wrap;
    padding: 5rem 5rem;
 }
@@ -36,12 +35,12 @@
 }
 
 .card {
-    width: 97rem;
-    padding: 1rem;
+    width: 74rem;
+    padding: 2rem;
     list-style: none;
-    gap: 10rem;
+    gap: 20srem;
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
     img {
         width: 70rem;

@@ -58,7 +58,7 @@ function CreateReleaseForm({onClick, getReleases, cancelCreate}) {
     return(
         <section className="form-section">
             <form onSubmit={handlePostRelease}>
-            <h1>Post a new release</h1>
+            <h3>Post a new release</h3>
                 <label htmlFor="title">Title</label>
                 <input onChange={(e) => setTitle(e.target.value)} required type="text" name="title" className="title" value={title} />
                 <label htmlFor="date">Date of release</label>
