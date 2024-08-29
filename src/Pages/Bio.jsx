@@ -22,9 +22,9 @@ function Bio({bio, getBio, isLoading}) {
           <div className="bio-container">
             <p className="bio-text">{bio.bio}</p>
           </div>
-          <div className="socials-container">
+          {/* <div className="socials-container">
             <SocialLinks bio={bio} />
-          </div>
+          </div> */}
         </div>
       }
     </section>

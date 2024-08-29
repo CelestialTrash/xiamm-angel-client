@@ -19,8 +19,10 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import ProductsPage from "./Pages/ProductsPage";
 import ProductDetailsPage from "./Pages/ProductDetailsPage";
 import EditProfilePage from "./Pages/EditProfilePage";
+import Footer from './Components/Footer'
 //ASSETS
 import placeholderImage from "./assets/NA-image.png"
+
 
 
 
@@ -104,6 +106,7 @@ function App() {
         <Route path="/products/:productId" element={<ProductDetailsPage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
+      <Footer bio={sharedBio}/>
     </>
   );
 }

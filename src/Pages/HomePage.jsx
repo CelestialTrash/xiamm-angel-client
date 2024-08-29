@@ -31,11 +31,11 @@ function HomePage({bio, getBio}) {
   return (
     <section className="home-page-section">
       <video autoPlay muted loop className="video-homepage" src={backgroundVideo}></video>
-      <div className="social-links-section">
+      {/* <div className="social-links-section">
         <div className="social-links-container">
           <SocialLinks bio={bio}/>
         </div>
-      </div>
+      </div> */}
       <div className="image-container">
         {latestRelease && (
           <div className="latest-release">
