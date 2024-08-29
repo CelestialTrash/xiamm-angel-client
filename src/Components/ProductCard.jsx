@@ -12,11 +12,11 @@ const ProductCard = ({ eachProduct, user, showWarning, displayWarning, deletePro
       <Link to={`/products/${eachProduct._id}`}>
         <li className="product-card">
           <div>
-            <h2>{eachProduct.title}</h2>
             <img
               src={eachProduct.imageUrl[0]}
               alt={eachProduct.title}
             />
+            <h2>{eachProduct.title}</h2>
             <h3>$ {eachProduct.price}</h3>
             <button className="purchase-btn">See more</button>
           </div>
