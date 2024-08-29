@@ -10,6 +10,7 @@
 
     h2{
         text-align: center;
+        
     }
 }
 
@@ -18,8 +19,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 4rem;
+
+    h3 {
+        text-align: left;
+    }
+    
 }
 
 .bio-container {
@@ -37,6 +43,7 @@
 
 .bio-text{
     white-space: pre-wrap ;
+    
 }
 
 .socials-container {
