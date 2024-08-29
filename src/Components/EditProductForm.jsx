@@ -20,7 +20,6 @@ function EditProductForm({
   cancelEdit,
   getProduct,
   linkToPlatform,
-  
 }) {
   const [newTitle, setNewTitle] = useState(title);
   const [newPrice, setNewPrice] = useState(price);
@@ -136,7 +135,15 @@ function EditProductForm({
         {clearMessage && <div className="clear-message">{clearMessage}</div>}
         <div>
           {<UploadWidget onUpload={handleUpload} />}
-          <img src={newImages} alt="" />
+          {newImages.length === 0 ? (
+            <div></div>
+            ) : (
+              <div className="imported-image-container">
+              {newImages.map((image, index) => (
+                <img key={index} src={image} />
+              ))}
+              </div>
+            )}
           <button className="save-btn" type="submit">
             Save
           </button>

@@ -1,7 +1,6 @@
 //REACT
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect} from "react";
 import { Routes, Route } from "react-router-dom";
-import { AuthContext } from "./context/user.context";
 //Axios
 import axios from "axios";
 //COMPONENTS
@@ -20,7 +19,10 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import ProductsPage from "./Pages/ProductsPage";
 import ProductDetailsPage from "./Pages/ProductDetailsPage";
 import EditProfilePage from "./Pages/EditProfilePage";
-import Loader from "./Components/Loader";
+//ASSETS
+import placeholderImage from "./assets/NA-image.png"
+
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 
