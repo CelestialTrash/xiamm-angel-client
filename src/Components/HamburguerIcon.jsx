@@ -14,6 +14,12 @@ function HamburguerIcon({ toggleNavbar, resetIcon }) {
     setIsActive(newState);
     toggleNavbar(newState);
   };
+  
+  const handleClickLogo = () => {
+    setIsActive(false);
+    toggleNavbar(false);
+    
+  }
 
   // Reset icon when the Navbar is closed
   useEffect(() => {
@@ -24,7 +30,7 @@ function HamburguerIcon({ toggleNavbar, resetIcon }) {
 
   return (
     <section className="menu-section">
-      <Link to="/" onClick={handleClick}>
+      <Link to="/" onClick={handleClickLogo}>
         <img src={appLogo} alt="app-logo" />
       </Link>
       <div className={`menu-btn ${isActive ? 'active' : ''}`} onClick={handleClick}>
