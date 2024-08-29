@@ -26,9 +26,6 @@ function Navbar({ closeNavbar, isNavbarClosing }) {
     return (
         <div className={`navbar-container ${!isNavbarClosing ? '' : 'fadeout'}`}>
             <div className="text-container">
-            <Link to="/" onClick={closeNavbar}>
-                    <h5 className="link-hover">HomePage</h5>
-                </Link>
                 <Link to="/releases" onClick={closeNavbar}>
                     <h5 className="link-hover">Releases</h5>
                 </Link>
