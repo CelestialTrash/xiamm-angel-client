@@ -83,3 +83,7 @@
     animation: FadeOut 500ms linear;
 }
 
+.log-out {
+    cursor: pointer;
+}
+
