@@ -103,7 +103,7 @@ function App() {
         <Route path="/edit-bio" element={<EditProfilePage bio={sharedBio} getBio={getBio} isLoading={isLoading}/>} />
         <Route path="/releases" element={<ReleasesPage />} />
         <Route path="/products" element={<ProductsPage />} />
-        <Route path="/products/:productId" element={<ProductDetailsPage />} />
+        <Route path="/products/:productId" element={<ProductDetailsPage placeholderImg={placeholderImage}/>} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <Footer bio={sharedBio}/>
