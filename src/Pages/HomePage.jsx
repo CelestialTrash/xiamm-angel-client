@@ -49,7 +49,7 @@ function HomePage({bio, getBio}) {
         )}
       </div>
       <div className="title-container">
-        <h1>{bio.displayName}</h1>
+        <h1>{bio?.displayName}</h1> 
       </div>
     </section>
   );

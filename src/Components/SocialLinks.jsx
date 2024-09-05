@@ -9,6 +9,7 @@ import tiktok from "../assets/SocialMediaSVG/tiktok-fill-svgrepo-com.svg"
 import facebook from "../assets/SocialMediaSVG/facebook-fill-svgrepo-com.svg"
 
 function SocialLinks({bio}) {
+    if (!bio) return null;
     const renderSocialLink = (platform, url, icon) => {
         if(!url) return null;
         return (

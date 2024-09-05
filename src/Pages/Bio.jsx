@@ -8,7 +8,7 @@ import SocialLinks from "../Components/SocialLinks";
 
 
 function Bio({bio, getBio, isLoading}) {
-
+if (!bio) return null;
   useEffect(() => {
     getBio()
   }, [])
